@@ -2,7 +2,7 @@
     "anon-user": {
         "name": "anon-user",
         "type": "anon-user",
-        "disabled": false
+        "disabled": true
     },
     "api-key": {
         "name": "api-key",
@@ -12,7 +12,7 @@
     "local-userpass": {
         "name": "local-userpass",
         "type": "local-userpass",
-        "disabled": true,
+        "disabled": false,
         "config": {
             "autoConfirm": true,
             "resetPasswordSubject": "Here is a link to reset your password",
