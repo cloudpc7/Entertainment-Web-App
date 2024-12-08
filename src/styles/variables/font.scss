@@ -1,0 +1,59 @@
+@use 'sass:color';
+@use './colors.scss' as colors;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+$defaultFont: "Outfit", sans-serif;
+
+// Font Theme Map
+
+$font-themes: (
+    HeadingLarge: (
+        font-size: 2rem,
+        letter-spacing: -0.5px,
+        
+    ),
+
+    HeadingMedium: (
+        font-size: 1.5rem,
+
+    ),
+    HeadingSmall: (
+        font-size: 1.5rem,
+    ),
+    HeadingXs: (
+        font-size: 1.125rem,
+    ),
+
+    BodyMedium: (
+        font-size: 0.875rem,
+
+    ),
+    BodySmall: (
+        font-size: 0.8125rem,
+        opacity: 0.75,
+    ),
+);
+
+@each $key, $map in $font-themes { // map over font themes and for each key
+    .#{$key} { // key
+        @each $property, $value in $map { // use the value in the property
+            #{$property}: $value;
+        }
+
+        font-weight: 400; // shared values between each property
+        color: colors.colorTheme(app-white);
+    }
+}
+
+@mixin font-theme($theme-name) {
+    $theme: map-get($font-themes, $theme-name);
+    @if $theme {
+        font-family: map-get($theme, font-family);
+        font-weight: map-get($theme, font-weight);
+        line-height: map-get($theme, line-height);
+        letter-spacing: map-get($theme, letter-spacing);
+        color: map-get($theme, color);
+      } @else {
+        @error "No font theme found for `#{$theme-name}`";
+    }
+}
