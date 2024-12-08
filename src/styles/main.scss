@@ -1,1 +1,48 @@
+@use "./variables/font.scss" as font;
+@use "./variables/colors.scss" as colors;
+@use "./variables/utilities.scss" as util;
 @import "./reset/reset.scss";
+
+body {
+    background-color: colors.colorTheme(app-black) !important;
+    h1 {
+        @include font.font-theme(HeadingXs);
+
+        @media (min-width: 768px) {
+            @include font.font-theme(HeadingSmall);
+        }
+
+        @media (min-width: 992px) {
+            @include font.font-theme(HeadingMedium);
+        }
+
+        @media (min-width: 1200px) {
+            @include font.font-theme(HeadingLarge);
+        }
+
+    }
+
+    p {
+        @include font.font-theme(BodySmall);
+
+        @media (min-width: 768px) {
+            @include font.font-theme(BodyMedium);
+        }
+    }
+
+    .container-fluid {
+        max-width: 90rem;
+        max-height: 64rem;
+        place-self: center;
+        @include util.flex-container();
+        padding: util.gutter(xs);
+
+        @media (min-width: 768px) {
+            padding: util.gutter(tabletmd);
+        }
+
+        @media (min-width: 992px) {
+            padding: util.gutter(lg);
+        }
+    }
+}
