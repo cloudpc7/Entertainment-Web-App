@@ -1,31 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
 .HeadingLarge {
-  font-size: 2rem;
   letter-spacing: -0.5px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.HeadingMedium {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.HeadingSmall {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.HeadingXs {
-  font-size: 1.125rem;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.BodyMedium {
-  font-size: 0.875rem;
   font-weight: 400;
   color: #ffffff;
 }

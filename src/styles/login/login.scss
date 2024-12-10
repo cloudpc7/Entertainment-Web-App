@@ -1,0 +1,68 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+.login-container {
+    
+
+    .form-container {
+        @include util.flex-container(column,wrap,start,start);
+        padding: util.gutter(xs);
+        background-color: colors.colorTheme(app-dark-blue);
+        border-radius: 1.25rem;
+        @include util.gap(tabletXl);
+
+        @media (min-width: 768px) {
+            padding: 2rem;
+            @include util.gap(md);
+        }
+        
+        .login-title {
+            letter-spacing: -0.03125rem;
+            font-size: font.font-size(xl);
+        }
+
+        .form {
+            @include util.flex-container();
+            @include util.gap(tabletsm);
+            position: relative;
+
+            @media (min-width: 768px) {
+                @include util.flex-container(column,wrap,start,start);        
+            }
+
+            .form-control {
+                @include util.input-styles();
+            }
+
+            .error-message {
+               @include util.error-message();
+            }
+
+            .password-message {
+                @include util.password-message();
+            }
+        }
+
+        .login-button {
+            @include util.button-style();
+        }
+
+        .form-switch {
+            display: flex;
+            align-self: center;
+            width: 100%;
+            gap: 9px;
+            font-size: 0.9375rem;
+            span {
+                color: colors.colorTheme(app-red);
+                &:hover {
+                    color: colors.colorTheme(app-white);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    
+}

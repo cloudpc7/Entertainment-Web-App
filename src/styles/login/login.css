@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.HeadingLarge {
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.BodySmall {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.login-container .form-container {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: start;
+  padding: 1.5rem;
+  background-color: #161D2F;
+  border-radius: 1.25rem;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .login-container .form-container {
+    padding: 2rem;
+    gap: 2.5rem;
+  }
+}
+.login-container .form-container .login-title {
+  letter-spacing: -0.03125rem;
+  font-size: 2rem;
+}
+.login-container .form-container .form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.56rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .login-container .form-container .form {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+}
+.login-container .form-container .form .form-control {
+  font-size: 0.9375rem;
+  color: #ffffff;
+  background-color: #161D2F;
+  border: none;
+  caret-color: #FC4747;
+  padding: 0;
+  cursor: pointer;
+}
+.login-container .form-container .form .form-control::-moz-placeholder {
+  font-size: 0.9375rem;
+  color: #ffffff;
+  opacity: 0.5;
+  line-height: 1;
+}
+.login-container .form-container .form .form-control::placeholder {
+  font-size: 0.9375rem;
+  color: #ffffff;
+  opacity: 0.5;
+  line-height: 1;
+}
+.login-container .form-container .form .form-control:active {
+  caret-color: #FC4747;
+}
+.login-container .form-container .form .error-message {
+  color: #FC4747;
+  position: absolute;
+  top: 0.77rem;
+  right: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+.login-container .form-container .form .password-message {
+  color: #FC4747;
+  position: absolute;
+  top: 4.77rem;
+  right: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+.login-container .form-container .login-button {
+  padding: 0.797rem 4.25978rem;
+  background-color: #FC4747;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+@media (min-width: 768px) {
+  .login-container .form-container .login-button {
+    padding: 1rem 6.0411rem;
+  }
+}
+.login-container .form-container .login-button:hover {
+  background-color: #ffffff;
+  color: #10141E;
+}
+.login-container .form-container .form-switch {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  gap: 9px;
+  font-size: 0.9375rem;
+}
+.login-container .form-container .form-switch span {
+  color: #FC4747;
+}
+.login-container .form-container .form-switch span:hover {
+  color: #ffffff;
+  cursor: pointer;
+}/*# sourceMappingURL=login.css.map */

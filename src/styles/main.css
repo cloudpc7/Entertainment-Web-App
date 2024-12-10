@@ -1,31 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
 .HeadingLarge {
-  font-size: 2rem;
   letter-spacing: -0.5px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.HeadingMedium {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.HeadingSmall {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.HeadingXs {
-  font-size: 1.125rem;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.BodyMedium {
-  font-size: 0.875rem;
   font-weight: 400;
   color: #ffffff;
 }
@@ -92,30 +73,37 @@ table {
 
 body {
   background-color: #10141E !important;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
 }
 @media (min-width: 1200px) {
-  body h1 {
+  body .h1, body h1 {
     letter-spacing: -0.5px;
   }
+}
+body h1, body .h1, body h2, body .h2, body p, body .form-label {
+  margin: 0;
 }
 body .container-fluid {
   max-width: 90rem;
   max-height: 64rem;
-  place-self: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 1.5rem;
+  margin: 0;
+  gap: 3rem;
+  padding: 3rem 1.5rem;
 }
 @media (min-width: 768px) {
   body .container-fluid {
-    padding: 1.56rem;
+    padding: 3.5rem 0;
+    gap: 4rem;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1440px) {
   body .container-fluid {
-    padding: 2rem;
+    gap: 5rem;
   }
 }/*# sourceMappingURL=main.css.map */

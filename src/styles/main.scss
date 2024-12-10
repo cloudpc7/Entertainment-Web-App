@@ -5,44 +5,38 @@
 
 body {
     background-color: colors.colorTheme(app-black) !important;
-    h1 {
-        @include font.font-theme(HeadingXs);
+    color: colors.colorTheme(app-white);
+    @include font.font-theme(default);
 
-        @media (min-width: 768px) {
-            @include font.font-theme(HeadingSmall);
-        }
-
-        @media (min-width: 992px) {
-            @include font.font-theme(HeadingMedium);
-        }
-
+    .h1, h1 {
         @media (min-width: 1200px) {
             @include font.font-theme(HeadingLarge);
         }
-
     }
 
     p {
         @include font.font-theme(BodySmall);
+    }
 
-        @media (min-width: 768px) {
-            @include font.font-theme(BodyMedium);
-        }
+    h1,.h1,h2,.h2,p,.form-label {
+        @include util.margin(default);
     }
 
     .container-fluid {
         max-width: 90rem;
         max-height: 64rem;
-        place-self: center;
-        @include util.flex-container();
-        padding: util.gutter(xs);
+        @include util.flex-container(column,wrap,center,center);
+        @include util.margin(default);
+        @include util.gap(mobilexl);
+        padding: 3rem util.gutter(xs);
 
         @media (min-width: 768px) {
-            padding: util.gutter(tabletmd);
+            padding: util.gutter(xlarge) 0;
+            @include util.gap(lg);
         }
 
-        @media (min-width: 992px) {
-            padding: util.gutter(lg);
+        @media (min-width: 1440px) {
+            @include util.gap(xl);
         }
     }
 }
