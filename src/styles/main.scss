@@ -9,9 +9,10 @@ body {
     @include font.font-theme(default);
     display: flex;
     flex-direction: column;
-
-    .container {
-        max-width: 100% !important;
+    @media (min-width: 768px) {
+        .container {
+            max-width: 100%;
+        }
     }
 
     .h1, h1 {

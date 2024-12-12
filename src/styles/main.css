@@ -78,8 +78,10 @@ body {
   display: flex;
   flex-direction: column;
 }
-body .container {
-  max-width: 100% !important;
+@media (min-width: 768px) {
+  body .container {
+    max-width: 100%;
+  }
 }
 @media (min-width: 1200px) {
   body .h1, body h1 {

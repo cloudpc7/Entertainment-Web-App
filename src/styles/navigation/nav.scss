@@ -3,9 +3,12 @@
 @use '../variables/font.scss' as font;
 
 .nav-container {
-    width: 100%;
     @include util.flex-container(row,wrap,space-between,center);
-    
+
+    @media (min-width: 1440px) {
+        height: 100%;
+        @include util.flex-container(column,center,center);
+    } 
     .brand {
         @include util.margin(default);
         padding: util.gutter(default);
@@ -17,9 +20,24 @@
     }
 
     .nav-icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include util.gap(xs);
+        align-self: center;
+
+        @media (min-width: 1440px) {
+            display: flex;
+            flex-direction: column;
+            padding-top: 5.75rem;
+        }
+
         .nav-link {
             padding: util.gutter(default);
+            @media (min-width: 1440px) {
+                padding-bottom: 1.25rem;
+            }
+            
         }
 
         .icon {
@@ -36,5 +54,11 @@
     .avatar {
         max-width: 1.5rem;
         max-height: 1.5rem;
+        align-self: center;
+
+        @media(min-width: 1440px) {
+            margin-top: auto;
+        }
+        
     }
 }

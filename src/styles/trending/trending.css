@@ -26,4 +26,11 @@
   justify-content: flex-start;
   gap: 2.5rem;
   padding: 0;
+}
+@media (min-width: 1440px) {
+  .trending-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+  }
 }/*# sourceMappingURL=trending.css.map */

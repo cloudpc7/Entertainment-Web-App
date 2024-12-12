@@ -3,32 +3,68 @@
 @use '../variables/font.scss' as font;
 
 .home-container {
-    @include util.flex-container(column,wrap,center,center);
-    padding: 0 util.gutter(default);
+    @include util.flex-container(column,wrap,flex-start,flex-start);
+    padding: 0;
     @media (min-width: 768px) {
         @include util.margin(default);
         padding: util.gutter(sm) util.gutter(medium);
     }
 
-    .home {
-        width: 100%;
-        @include util.flex-container(column,wrap,center,center);
+    @media (min-width: 1440px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr, auto);
+        padding: 0 2rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
 
-        .nav-col {
-            width: 100%;
+    .nav-col {
+        width: 100%;
+        min-width: 376px;
+      
+        background-color: colors.colorTheme(app-dark-blue);
+        padding: 1rem 1.25rem;
+        margin: 0;
+        @include util.flex-container(row,wrap,flex-start,flex-start);
+        align-self: flex-start;
+
+        @media (min-width: 768px) {
             border-radius: 0.625rem;
-            background-color: colors.colorTheme(app-dark-blue);
-            padding: 1rem 1.25rem;
-            @include util.flex-container(row,wrap,space-between);
+        }
+        @media (min-width: 1440px) {
+            max-width: 6rem;
+            min-width: 6rem;
+            max-height: 60rem;
+            height: 100%;
+            grid-column: 1;
+            @include util.flex-container(column,wrap,center,center);
+            align-self: flex-start;
+            margin-top: 2rem;
+            padding: 1.99rem 0 0 0;
         }
 
+    }
+
+    .home {
+        @include util.flex-container(column,wrap,flex-start,flex-start);
+
+        @media (min-width: 1440px) {
+            grid-column: 2;
+            align-self: flex-start;
+            justify-self: flex-start;
+            margin-left: 2.25rem;
+        }
         .search-col {
             @include util.flex-container(row,wrap,unset,unset);
             @include util.gap(xs);
             padding: 1.62rem util.gutter(xs);
-
+            margin: 0 1rem;
             @media (min-width: 768px) {
                 padding: util.gutter(tablet) util.gutter(default);
+            }
+
+            @media (min-width: 1440px) {
+                padding: 4rem 0 2rem 0;
             }
         }
 
@@ -37,7 +73,7 @@
             text-align: start;
             padding: 0 util.gutter(xs);
             @include util.gap(xs);
-
+            margin: 0 1rem;
             @media (min-width: 768px) {
                 @include util.gap(tabletsm);
                 padding: util.gutter(default);
@@ -45,15 +81,24 @@
         }
 
         .recommend-col {
-            @include util.flex-container(column,nowrap,center,flex-start);
-            text-align: start;
-            padding: 0 util.gutter(xs);
-            @include util.gap(xs);
-            @include util.margin(md,top);
-
+            @include util.flex-container(column,nowrap,flex-start,flex-start);
+            max-width: 376px;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 0 1rem;
+            margin-left:1rem;
             @media (min-width: 768px) {
                 padding: util.gutter(default);
                 @include util.gap(sm);
+                align-items:flex-start;
+                margin-top: 2.44rem;
+                align-self: flex-start;
+                max-width: 768px;
+            }
+
+            @media (min-width: 1440px) {
+                margin-top: 2.5rem;
+                max-width: 1440px;
             }
         }
     }

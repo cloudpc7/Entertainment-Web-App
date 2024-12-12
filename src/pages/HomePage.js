@@ -16,28 +16,28 @@ const HomePage = () => {
 
     return (
         <Container  className="home-container">
-            <Row className="home">
-                <Col className="nav-col">
-                    <Navigation />
-                </Col>
-                <Col className="search-col">
-                    <SearchBar 
-                        movies={movies}
-                    />
-                </Col>
-                <Col className="trending-col">
-                    <h3 className="h3 sub-title">Trending</h3>
-                    <Trending 
-                        movies={movies}
-                    />
-                </Col>
-                <Col className="recommend-col">
-                    <h3 className="h3 sub-title">Recommended</h3>
-                    <Recommended 
-                        movies={movies}
-                    />
-                </Col>
+            <Row className="nav-col">
+                <Navigation />
             </Row>
+            <Row className="home">
+                    <Col className="search-col">
+                        <SearchBar 
+                            movies={movies}
+                        />
+                    </Col>
+                    <Col className="trending-col">
+                        <h3 className="h3 sub-title">Trending</h3>
+                        <Trending 
+                            movies={movies}
+                        />
+                    </Col>
+                    <Col className="recommend-col">
+                        <h3 className="h3 sub-title">Recommended</h3>
+                        <Recommended 
+                            movies={movies}
+                        />
+                    </Col>
+                </Row>
         </Container>
     )
 }

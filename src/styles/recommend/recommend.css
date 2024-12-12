@@ -20,14 +20,21 @@
 
 .recommend-container {
   display: grid;
-  grid-template-rows: auto;
   grid-template-columns: repeat(2, 1fr);
+  align-self: flex-start;
   gap: 1rem;
-  padding: 0;
 }
 @media (min-width: 768px) {
   .recommend-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 1fr;
     gap: 1.81rem;
+  }
+}
+@media (min-width: 1440px) {
+  .recommend-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }/*# sourceMappingURL=recommend.css.map */
