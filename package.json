@@ -1,5 +1,6 @@
 {
-  "name": "entertainmentapp",
+  "name": "entertainment-web-app",
+  "homepage": "https://cloudpc7.github.io/Entertainment-Web-App/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
+    "entertainment-web-app": "file:",
     "entertainmentapp": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

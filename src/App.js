@@ -8,14 +8,9 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Routes>
-      {/* <Route path="/" element={<LoginPage />}/> */}
-      <Route  path="/" element={<HomePage />} />
-      {/* <Route  path="/movies" element={<Movies />} />
-      <Route  path="/tvseries" element={<TVSeries />} />
-      <Route  path="/bookmarked" element={<Bookmarked />} /> */}
-    </Routes>
-
+    <>
+      <HomePage />
+    </>
   );
 }
 
