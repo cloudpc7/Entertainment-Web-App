@@ -2,6 +2,26 @@
 @use '../variables/utilities.scss' as util;
 @use '../variables/font.scss' as font;
 
+.container-fluid {
+    max-width: 90rem;
+    max-height: 64rem;
+    @include util.flex-container(column,wrap,center,center);
+    @include util.margin(default);
+    @include util.gap(mobilexl);
+    padding: 3rem util.gutter(xs);
+
+    @media (min-width: 768px) {
+        padding: util.gutter(xlarge) 0;
+        @include util.gap(lg);
+    }
+
+    @media (min-width: 1440px) {
+        @include util.gap(xl);
+        margin: 0 auto;
+    }
+}
+
+
 .login-container {
     
 

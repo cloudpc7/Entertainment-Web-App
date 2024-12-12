@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.HeadingLarge {
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.BodySmall {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.recommend-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .recommend-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.81rem;
+  }
+}/*# sourceMappingURL=recommend.css.map */

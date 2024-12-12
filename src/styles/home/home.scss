@@ -1,0 +1,60 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+.home-container {
+    @include util.flex-container(column,wrap,center,center);
+    padding: 0 util.gutter(default);
+    @media (min-width: 768px) {
+        @include util.margin(default);
+        padding: util.gutter(sm) util.gutter(medium);
+    }
+
+    .home {
+        width: 100%;
+        @include util.flex-container(column,wrap,center,center);
+
+        .nav-col {
+            width: 100%;
+            border-radius: 0.625rem;
+            background-color: colors.colorTheme(app-dark-blue);
+            padding: 1rem 1.25rem;
+            @include util.flex-container(row,wrap,space-between);
+        }
+
+        .search-col {
+            @include util.flex-container(row,wrap,unset,unset);
+            @include util.gap(xs);
+            padding: 1.62rem util.gutter(xs);
+
+            @media (min-width: 768px) {
+                padding: util.gutter(tablet) util.gutter(default);
+            }
+        }
+
+        .trending-col {
+            @include util.flex-container(column,nowrap,center,flex-start);
+            text-align: start;
+            padding: 0 util.gutter(xs);
+            @include util.gap(xs);
+
+            @media (min-width: 768px) {
+                @include util.gap(tabletsm);
+                padding: util.gutter(default);
+            }
+        }
+
+        .recommend-col {
+            @include util.flex-container(column,nowrap,center,flex-start);
+            text-align: start;
+            padding: 0 util.gutter(xs);
+            @include util.gap(xs);
+            @include util.margin(md,top);
+
+            @media (min-width: 768px) {
+                padding: util.gutter(default);
+                @include util.gap(sm);
+            }
+        }
+    }
+}

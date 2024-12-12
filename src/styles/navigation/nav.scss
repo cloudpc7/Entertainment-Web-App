@@ -1,0 +1,40 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+.nav-container {
+    width: 100%;
+    @include util.flex-container(row,wrap,space-between,center);
+    
+    .brand {
+        @include util.margin(default);
+        padding: util.gutter(default);
+
+        @media (min-width: 768px) {
+            width: 2rem;
+            height: 1.6rem;
+        }
+    }
+
+    .nav-icons {
+        @include util.gap(xs);
+        .nav-link {
+            padding: util.gutter(default);
+        }
+
+        .icon {
+            min-width: 1rem;
+            min-height: 1rem;
+
+            @media (min-width: 768px) {
+                min-width: 1.5rem;
+                min-height: 1.5rem;
+            }
+        }
+    }
+
+    .avatar {
+        max-width: 1.5rem;
+        max-height: 1.5rem;
+    }
+}

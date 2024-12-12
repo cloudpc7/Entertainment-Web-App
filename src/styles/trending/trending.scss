@@ -1,0 +1,10 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+
+.trending-container {
+    @include util.flex-container(row,nowrap,flex-start);
+    @include util.gap(tabletXl);
+    padding: util.gutter(default);
+}

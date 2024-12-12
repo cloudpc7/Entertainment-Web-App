@@ -7,6 +7,12 @@ body {
     background-color: colors.colorTheme(app-black) !important;
     color: colors.colorTheme(app-white);
     @include font.font-theme(default);
+    display: flex;
+    flex-direction: column;
+
+    .container {
+        max-width: 100% !important;
+    }
 
     .h1, h1 {
         @media (min-width: 1200px) {
@@ -14,29 +20,19 @@ body {
         }
     }
 
+    h3,.h3 {
+       font-size: font.font-size(sub);
+
+       @media (min-width: 768px) {
+        font-size: font.font-size(xl);
+       }
+    }
+
     p {
         @include font.font-theme(BodySmall);
     }
 
-    h1,.h1,h2,.h2,p,.form-label {
+    h1,.h1,h2,.h2,h3,.h3,p, .card-title, .form-label {
         @include util.margin(default);
-    }
-
-    .container-fluid {
-        max-width: 90rem;
-        max-height: 64rem;
-        @include util.flex-container(column,wrap,center,center);
-        @include util.margin(default);
-        @include util.gap(mobilexl);
-        padding: 3rem util.gutter(xs);
-
-        @media (min-width: 768px) {
-            padding: util.gutter(xlarge) 0;
-            @include util.gap(lg);
-        }
-
-        @media (min-width: 1440px) {
-            @include util.gap(xl);
-        }
     }
 }

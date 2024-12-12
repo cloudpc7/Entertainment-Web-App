@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.HeadingLarge {
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.BodySmall {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.nav-container {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.nav-container .brand {
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .nav-container .brand {
+    width: 2rem;
+    height: 1.6rem;
+  }
+}
+.nav-container .nav-icons {
+  gap: 1rem;
+}
+.nav-container .nav-icons .nav-link {
+  padding: 0;
+}
+.nav-container .nav-icons .icon {
+  min-width: 1rem;
+  min-height: 1rem;
+}
+@media (min-width: 768px) {
+  .nav-container .nav-icons .icon {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+  }
+}
+.nav-container .avatar {
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+}/*# sourceMappingURL=nav.css.map */

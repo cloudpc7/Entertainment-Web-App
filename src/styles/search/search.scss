@@ -1,0 +1,47 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+.search-btn {
+    @include util.flex-container();
+    background-color: colors.colorTheme(app-black);
+    border:none;
+    padding: util.gutter(default);
+    .search-img {
+        width: 100%;
+        max-width: 1.5rem;
+        max-height: 1.5rem;
+        align-self: center;
+
+        @media (min-width: 768px) {
+            max-width: 2rem;
+            max-height: 2rem;
+        }
+    }
+}
+
+.search-container {
+    .search-bar {
+        background-color: colors.colorTheme(app-black);
+        text-align: start;
+        min-width: 15rem;
+        border:none;
+        padding: 0.3rem 0;
+
+        @media (min-width: 768px) {
+            min-width: 28rem;
+            padding: 1rem 0;
+        }
+
+        &::placeholder {
+            color: colors.colorTheme(app-white);
+            opacity: 0.4979;
+            width: 100%;
+            caret-color: colors.colorTheme(app-red);
+
+            @media (min-width: 768px) {
+                font-size: font.font-size(lg);
+            }
+        }
+    }
+}

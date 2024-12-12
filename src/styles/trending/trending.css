@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.HeadingLarge {
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.BodySmall {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.trending-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  padding: 0;
+}/*# sourceMappingURL=trending.css.map */

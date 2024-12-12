@@ -1,0 +1,17 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+
+.recommend-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2,1fr);
+    @include util.gap(xs);
+    padding: util.gutter(default);
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3,1fr);
+        @include util.gap(tabletmd);
+    }
+}

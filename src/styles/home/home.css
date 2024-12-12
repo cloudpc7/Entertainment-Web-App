@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.HeadingLarge {
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.BodySmall {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.home-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 0;
+}
+@media (min-width: 768px) {
+  .home-container {
+    margin: 0;
+    padding: 1.44rem 1.56rem;
+  }
+}
+.home-container .home {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.home-container .home .nav-col {
+  width: 100%;
+  border-radius: 0.625rem;
+  background-color: #161D2F;
+  padding: 1rem 1.25rem;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.home-container .home .search-col {
+  align-items: unset;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: unset;
+  gap: 1rem;
+  padding: 1.62rem 1rem;
+}
+@media (min-width: 768px) {
+  .home-container .home .search-col {
+    padding: 2.12rem 0;
+  }
+}
+.home-container .home .trending-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: start;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .home-container .home .trending-col {
+    gap: 1.56rem;
+    padding: 0;
+  }
+}
+.home-container .home .recommend-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: start;
+  padding: 0 1rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .home-container .home .recommend-col {
+    padding: 0;
+    gap: 1.12rem;
+  }
+}/*# sourceMappingURL=home.css.map */
