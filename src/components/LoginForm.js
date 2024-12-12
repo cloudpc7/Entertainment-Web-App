@@ -2,7 +2,7 @@ import {Form, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import validator from 'validator';
 import addUser from '../utilities/userAPI';
-// testing gh-pages push
+
 import '../styles/login/login.scss';
 
 const LoginForm = () => {
