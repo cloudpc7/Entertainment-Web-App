@@ -2,8 +2,7 @@ import MovieCard from './MovieCard';
 import { Container } from 'react-bootstrap';
 import '../styles/trending/trending.scss';
 
-const Trending = ({movies}) => {
-    const isTrending = movies.filter((movie) => movie.isTrending);
+const Trending = ({ isTrending }) => {
 
     return (
         <Container className="trending-container">
