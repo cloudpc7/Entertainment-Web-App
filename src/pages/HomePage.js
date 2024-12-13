@@ -23,6 +23,8 @@ const HomePage = () => {
         getMovies();
     },[])
 
+    console.log(movies);
+
     const isTrending = movies.filter((movie) => movie.isTrending);
     const recommended = movies.filter((movie) => !movie.isTrending);
 
