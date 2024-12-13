@@ -5,9 +5,14 @@
 .nav-container {
     justify-content: space-between;
     padding: util.gutter(xs);
+
+    @media (min-width: 768px) {
+        padding: 1.5rem;
+    }
     @media (min-width: 1440px) {
         height: 100%;
         @include util.flex-container(column,center,center);
+        padding: util.gutter(default);
     } 
     .brand {
         @include util.margin(default);
@@ -20,6 +25,12 @@
 
     .nav-icons {
         @include util.gap(xs);
+        @media (min-width: 768px) {
+            max-width: 1.5rem;
+            max-height: 1.5rem;
+            gap: 1.5rem;
+        }
+
         @media (min-width: 1440px) {
             display: flex;
             flex-direction: column;
@@ -46,6 +57,12 @@
         max-width: 1.5rem;
         max-height: 1.5rem;
         align-self: center;
+
+        @media (min-width: 768px) {
+            max-width: 2rem;
+            max-height: 2rem;
+        }
+
         @media(min-width: 1440px) {
             margin-top: auto;
             margin-bottom: 2rem;

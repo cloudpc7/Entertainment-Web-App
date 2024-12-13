@@ -21,16 +21,15 @@
 }
 
 .search-container {
+    padding: util.gutter(default);
     .search-bar {
         background-color: colors.colorTheme(app-black);
         text-align: start;
         min-width: 15rem;
         border:none;
-        padding: 0.3rem 0;
 
         @media (min-width: 768px) {
             min-width: 28rem;
-            padding: 1rem 0;
         }
 
         &::placeholder {

@@ -7,9 +7,9 @@
     @include util.flex-container(row,nowrap,flex-start,center);
     @include util.gap(xs);
     padding: util.gutter(default);
-    // @media (min-width: 1440px) {
-    //     display: grid;
-    //     grid-template-columns: repeat(5, 1fr);
-    //     grid-template-rows: 1fr;
-    // }
+    @include util.margin(default);
+
+    @media (min-width: 1440px) {
+        gap: 2.5rem;
+    }
 }

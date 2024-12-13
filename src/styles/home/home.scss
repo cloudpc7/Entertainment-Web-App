@@ -6,7 +6,7 @@
     padding: util.gutter(default);
     @media (min-width: 768px) {
         @include util.margin(default);
-        padding: util.gutter(sm) util.gutter(medium);
+        max-width: 100%;
     }
 
     @media (min-width: 1440px) {
@@ -21,20 +21,20 @@
         background-color: colors.colorTheme(app-dark-blue);
         @include util.margin(default);
 
-        // @media (min-width: 768px) {
-        //     border-radius: 0.625rem;
-        // }
-        // @media (min-width: 1440px) {
-        //     max-width: 6rem;
-        //     min-width: 6rem;
-        //     max-height: 60rem;
-        //     height: 100%;
-        //     grid-column: 1;
-        //     @include util.flex-container(column,wrap,center,center);
-        //     align-self: flex-start;
-        //     margin-top: 2rem;
-        //     padding: 1.99rem 0 0 0;
-        // }
+        @media (min-width: 768px) {
+            border-radius: 0.625rem;
+            margin-top: 1.44rem;
+            margin-left: 1.56rem;
+            margin-right: 1.56rem;
+        }
+        @media (min-width: 1440px) {
+            min-width: 6rem;
+            max-height: 60rem;
+            height: 100%;
+            grid-column: 1;
+            margin: 2rem 0 0 0;
+            padding: 2rem;
+        }
 
     }
 
@@ -42,11 +42,16 @@
         flex-direction: column;
         padding: 0 util.gutter(sm);
         padding-bottom: 3.81rem;
+
+        @media (min-width: 768px) {
+            padding-left: 1.56rem;
+        }
         @media (min-width: 1440px) {
             grid-column: 2;
             align-self: flex-start;
             justify-self: flex-start;
             margin-left: 2.25rem;
+            padding-left: 0;
         }
         .search-col {
             margin: 1.62rem 0;
@@ -54,25 +59,24 @@
             @include util.flex-container(row,wrap,flex-start,center);
             @include util.gap(xs);
             @media (min-width: 768px) {
-                padding: util.gutter(tablet) util.gutter(default);
+                margin: 2.12rem 0;
             }
 
             @media (min-width: 1440px) {
-                padding: 4rem 0 2rem 0;
+                margin: 4.06rem 0 2.19rem 0;
             }
         }
 
         .trending-col {
             @include util.flex-container(column,nowrap,flex-start,flex-start);
             padding: util.gutter(default);
-            margin-bottom: 1.5rem;
             .sub-title {
                 margin-bottom: 1rem;
+
+                @media (min-width: 768px) {
+                    margin-bottom: 1.56rem;
+                }
             } 
-            // @media (min-width: 768px) {
-            //     @include util.gap(tabletsm);
-            //     padding: util.gutter(default);
-            // }
         }
 
         .recommend-col {
@@ -81,17 +85,11 @@
                 margin-bottom: 1.5rem;
             }
             @media (min-width: 768px) {
-                padding: util.gutter(default);
-                @include util.gap(sm);
-                align-items:flex-start;
                 margin-top: 2.44rem;
-                align-self: flex-start;
-                max-width: 768px;
             }
 
             @media (min-width: 1440px) {
                 margin-top: 2.5rem;
-                max-width: 1440px;
             }
         }
     }

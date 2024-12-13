@@ -8,27 +8,36 @@
     @include util.flex-container();
     border: none;
     border-radius: 0.5rem;
+
     @media (min-width: 768px) {
         min-width: 29.375rem;
         max-width: 29.375rem;
+        min-height: 14.375rem;
+        max-height: 14.375rem;
     }
 
     @media (min-width: 1440px) {
-        min-width: 17.5rem;
-        max-width: 17.5rem;
-        width: 100%;
-    }
-
-    @media (min-width: 1440px) {
-        .movie-image {
-            min-height: 14.375rem;
-            max-height: 14.375rem;
-        }
+        min-width: 29.375rem;
+        max-width: 29.375rem;
     }
 
     .movie-image {
         min-width: 15rem;
         min-height: 8.75rem;
+
+        @media (min-width: 768px) {
+            min-width: 29.375rem;
+            max-width: 29.375rem;
+            min-height: 14.375rem;
+            max-height: 14.375rem;
+        }
+
+        @media (min-width: 1440px) {
+            max-width: 29.375rem;
+            min-width: 29.375rem;
+            min-height: 14.375rem;
+            max-height: 14.375rem;
+        }
     }
     
     .movie {
@@ -65,7 +74,8 @@
 
             @media (min-width: 768px) {
                 font-size: font.font-size(tabletAbout);
-                padding: 0 0 1.5rem 1.5rem;
+                padding-left: 1.5rem;
+                padding-bottom: 1.5rem;
             }
 
             @media (min-width: 1440px) {
@@ -113,6 +123,7 @@
     grid-template-rows: 1fr;
     max-width: 10.25rem;
     background-color: colors.colorTheme(app-black);
+    border: none;
     @include util.gap(mobilexs);
 
     @media (min-width: 768px) {
