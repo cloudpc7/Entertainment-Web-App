@@ -55,9 +55,10 @@ const MovieCard = ({category,isTrending,trending, isbookMarked, rating, thumbnai
                     </CardImgOverlay>
                     <CardImg 
                         src={
-                            windowWidth <=576 && trending ?
+                            windowWidth <= 576 ?
                             thumbnail.trending.small :
                             thumbnail.trending.large
+
                         }
                         alt={title}
                         className="movie-image"

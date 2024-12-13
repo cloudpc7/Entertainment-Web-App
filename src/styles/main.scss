@@ -7,13 +7,6 @@ body {
     background-color: colors.colorTheme(app-black) !important;
     color: colors.colorTheme(app-white);
     @include font.font-theme(default);
-    display: flex;
-    flex-direction: column;
-    @media (min-width: 768px) {
-        .container {
-            max-width: 100%;
-        }
-    }
 
     .h1, h1 {
         @media (min-width: 1200px) {

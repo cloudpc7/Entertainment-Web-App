@@ -3,14 +3,14 @@ import { Container } from 'react-bootstrap';
 import '../styles/trending/trending.scss';
 
 const Trending = ({ isTrending }) => {
-
+  
     return (
         <Container className="trending-container">
             {
                 isTrending.map((movie) => {
                     const { 
                         category, 
-                        isBookmarked, 
+                        isBookmarked,
                         isTrending,
                         rating, 
                         thumbnail, 

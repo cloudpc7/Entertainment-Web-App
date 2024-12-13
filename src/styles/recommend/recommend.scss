@@ -4,10 +4,10 @@
 
 
 .recommend-container {
+    padding: util.gutter(default);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-self: flex-start;
-    gap: 1rem;
+    @include util.gap(sm);
     @media (min-width: 768px) {
         grid-template-columns: repeat(3,auto);
         grid-template-rows: 1fr;

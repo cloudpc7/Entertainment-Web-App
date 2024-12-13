@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from '../components/Navigation';
 import SearchBar from '../components/Searchbar';
 import Trending from '../components/Trending';
-// import Recommended from '../components/Recommended';
+import Recommended from '../components/Recommended';
 import '../styles/home/home.scss';
 import movieApi from '../utilities/movieApi';
 
@@ -25,10 +25,10 @@ const HomePage = () => {
 
     const isTrending = movies.filter((movie) => movie.isTrending);
     const recommended = movies.filter((movie) => !movie.isTrending);
-    
+
     return (
         <Container className="home-container">
-            <Row className="nav-col">
+            <Row className="nav-row">
                 <Navigation />
             </Row>
             <Row className="home">
@@ -43,9 +43,9 @@ const HomePage = () => {
                 </Col>
                 <Col className="recommend-col">
                     <h3 className="h3 sub-title">Recommended</h3>
-                    {/* <Recommended 
-                        movies={movies}
-                    /> */}
+                    <Recommended 
+                        recommended={recommended}
+                    />
                 </Col>
             </Row>
         </Container>

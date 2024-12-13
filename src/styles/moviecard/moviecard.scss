@@ -5,14 +5,9 @@
 .movie-card {
     min-width: 15rem;
     min-height: 8.75rem;
+    @include util.flex-container();
     border: none;
     border-radius: 0.5rem;
-
-    .movie-image {
-        min-width: 15rem;
-        min-height: 8.75rem;
-    }
-
     @media (min-width: 768px) {
         min-width: 29.375rem;
         max-width: 29.375rem;
@@ -29,6 +24,11 @@
             min-height: 14.375rem;
             max-height: 14.375rem;
         }
+    }
+
+    .movie-image {
+        min-width: 15rem;
+        min-height: 8.75rem;
     }
     
     .movie {
@@ -56,8 +56,11 @@
             display: grid;
             align-self: flex-end;
             color: colors.colorTheme(app-white);
-            font-size: font.font-size(about);
-            padding: 0.5rem util.gutter(mobile);
+            font-size: 0.75rem;
+            padding-left: 0.75rem;
+            padding-bottom: 1.2rem;
+            padding-top: 0;
+            padding-right: 0;
             gap: 0.25rem;
 
             @media (min-width: 768px) {
