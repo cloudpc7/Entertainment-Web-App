@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const movieApi = async (movie) => {
-    const url = 'http://localhost:3000/data.json';
+    const url = 'https://cloudpc7.github.io/Entertainment-Web-App/data.json';
     try {
         const response = await fetch(url);
         if(!response.ok) {
