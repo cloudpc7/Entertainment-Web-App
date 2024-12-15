@@ -6,10 +6,10 @@
 .recommend-container {
     padding: util.gutter(default);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: flex-start;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
     @include util.margin(default);
-    @include util.gap(sm);
-
+    @include util.gap(xs);
     @media (min-width: 768px) {
         grid-template-columns: repeat(3,auto);
         @include util.gap(mobilemd);

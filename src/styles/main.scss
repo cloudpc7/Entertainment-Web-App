@@ -29,4 +29,58 @@ body {
     h1,.h1,h2,.h2,h3,.h3,p, .card-title, .form-label {
         @include util.margin(default);
     }
+
+    .app-container {
+        padding: util.gutter(default);
+        @include util.margin(default);
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 3rem;
+        @media (min-width: 1440px) {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(min-content,max-content));
+            padding: 0 2rem;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 2.25rem;
+        }
+
+        .app-row {
+            flex-direction: column;
+            @include util.margin(default);
+            padding: util.gutter(default);
+            @include util.gap(mobilemd);
+
+            @media (min-width: 768px) {
+                @include util.margin(tablet,top);
+                align-items: center;
+            }
+
+            @media (min-width: 1440px) {
+                grid-column: 1;
+                align-self: flex-start;
+                margin-top: 2rem;
+            }
+
+            .nav-col {
+                @include util.flex-container(row,wrap,space-between,center);
+                padding: util.gutter(default);
+                background-color: colors.colorTheme(app-dark-blue);
+                @include util.margin(default);
+                max-width: 44.9375rem;
+                @media (min-width: 576px) {
+                    border-radius: 0.625rem;
+                }
+
+                @media (min-width: 1440px) {
+                    width: 6rem;
+                    min-height: 61rem;
+                    max-height: 61rem;
+                    padding: 2rem;
+                    align-items: flex-start;
+                }
+        
+            }
+        }
+    }
 }

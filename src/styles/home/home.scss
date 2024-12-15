@@ -3,92 +3,74 @@
 @use '../variables/font.scss' as font;
 
 .home-container {
-    padding: util.gutter(default);
+    grid-column: 2;
+    padding: 0 util.gutter(xs);
+    @include util.margin(default);
     @media (min-width: 768px) {
         @include util.margin(default);
-        max-width: 100%;
     }
 
     @media (min-width: 1440px) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr, auto);
-        padding: 0 2rem;
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
-
-    .nav-row {
-        background-color: colors.colorTheme(app-dark-blue);
-        @include util.margin(default);
-
-        @media (min-width: 768px) {
-            border-radius: 0.625rem;
-            margin-top: 1.44rem;
-            margin-left: 1.56rem;
-            margin-right: 1.56rem;
-        }
-        @media (min-width: 1440px) {
-            width: 6rem;
-            height: 60rem;
-            grid-column: 1;
-            margin: 2rem 0 0 0;
-            padding: 2rem;
-        }
-
+        padding: util.gutter(default);
     }
 
     .home {
         flex-direction: column;
-        padding: 0 util.gutter(sm);
-        padding-bottom: 3.81rem;
+        padding: util.gutter(default);
 
-        @media (min-width: 768px) {
-            padding-left: 1.56rem;
-        }
-        @media (min-width: 1440px) {
-            grid-column: 2;
-            align-self: flex-start;
-            justify-self: flex-start;
-            margin-left: 2.25rem;
-            padding-left: 0;
-        }
         .search-col {
-            margin: 1.62rem 0;
-            padding: util.gutter(default);
+            grid-column: 2;
+            padding: 0 util.gutter(xs);
+            @include util.margin(default);
             @include util.flex-container(row,wrap,flex-start,center);
-            @include util.gap(xs);
+
             @media (min-width: 768px) {
-                margin: 2.12rem 0;
+                padding: 0 util.gutter(medium);
+                margin-top: 2.12rem;
             }
 
             @media (min-width: 1440px) {
-                margin: 4.06rem 0 2.19rem 0;
+                margin-top: 4.06rem;
+                padding: util.gutter(default);
             }
         }
 
         .trending-col {
             @include util.flex-container(column,nowrap,flex-start,flex-start);
-            padding: util.gutter(default);
-            .sub-title {
-                margin-bottom: 1rem;
 
-                @media (min-width: 768px) {
+            @media (min-width: 768px) {
+                padding: 0 util.gutter(medium);
+            }
+
+            @media (min-width: 1440px) {
+                padding: util.gutter(default);
+            }
+
+            .sub-title {
+                @include util.margin(md,(top,bottom));
+                @media (min-width: 1440px) {
+                    margin-top: 2.19rem;
                     margin-bottom: 1.56rem;
                 }
             } 
         }
 
         .recommend-col {
-            padding: util.gutter(default);
-            .sub-title {
-                margin-bottom: 1.5rem;
-            }
+
             @media (min-width: 768px) {
-                margin-top: 2.44rem;
+                padding: 0 util.gutter(medium);
             }
 
             @media (min-width: 1440px) {
-                margin-top: 2.5rem;
+                padding: util.gutter(default);
+            }
+
+            .sub-title {
+                @include util.margin(md,(top,bottom));
+
+                @media(min-width: 1440px) {
+                    margin: 2.5rem 0;
+                }
             }
         }
     }

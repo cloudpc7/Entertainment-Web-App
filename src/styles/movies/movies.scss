@@ -1,0 +1,53 @@
+@use '../variables/colors.scss' as colors;
+@use '../variables/utilities.scss' as util;
+@use '../variables/font.scss' as font;
+
+.movie-container {
+    @include util.flex-container(column,wrap,center,center);
+    padding: util.gutter(default);
+    @include util.margin(default);
+    width: 100%;
+    max-width: 100%;
+
+    @media(min-width: 1440px) {
+        display: grid;
+        grid-column: 2;
+        padding-bottom: 3rem;
+    }
+    .movie-row {
+        @include util.flex-container(column,wrap,flex-start,flex-start);
+        .search-col {
+            padding: util.gutter(default);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            @media (min-width: 768px) {
+                margin-top: 4.06rem;
+                margin-bottom: 2.19rem;
+            }
+        }
+
+        .sub-title {
+            @media (min-width: 1440px) {
+                margin-bottom: 2.38rem;
+            }
+        }
+    
+        .movies-col {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(min-content,max-content));
+            @include util.gap(xs);
+
+            @media(min-width: 768px) {
+                grid-template-columns: repeat(3, minmax(min-content,max-content)); 
+                gap: 1.5rem;
+            }
+
+            @media(min-width: 1440px) {
+                grid-template-columns: repeat(4, minmax(min-content,max-content)); 
+                gap: 2rem;
+            }
+        }
+    }
+}

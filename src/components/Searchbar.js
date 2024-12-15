@@ -53,9 +53,9 @@ const Searchbar = ({movies, onSearch}) => {
 
     return (
         <>
-            <Button className="search-btn" type="submit" >
+            <div className="search-btn" type="submit" >
                 <Image className="search-img" src={searchBar} alt="magnifying glass" />
-            </Button>
+            </div>
                 <Form className="search-container">
                     <Form.Group>
                         <Form.Control 

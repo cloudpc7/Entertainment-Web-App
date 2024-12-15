@@ -3,12 +3,10 @@
 @use '../variables/font.scss' as font;
 
 .search-btn {
-    @include util.flex-container();
     background-color: colors.colorTheme(app-black);
     border:none;
     padding: util.gutter(default);
     .search-img {
-        width: 100%;
         max-width: 1.5rem;
         max-height: 1.5rem;
         align-self: center;
@@ -21,14 +19,21 @@
 }
 
 .search-container {
-    padding: util.gutter(default);
+    padding: 1rem util.gutter(default);
     position: relative;
+
+    @media (min-width: 1440px) {
+        padding: 0;
+    }
+
     .search-bar {
         background-color: colors.colorTheme(app-black);
         text-align: start;
-        min-width: 20rem;
+        min-width: 19rem;
         border:none;
+        margin-left: 0.5rem;
         color: colors.colorTheme(app-white);
+        caret-color: colors.colorTheme(app-red);
         @media (min-width: 768px) {
             min-width: 28rem;
         }
@@ -43,12 +48,16 @@
                 font-size: font.font-size(lg);
             }
         }
+
+        &:active, &:focus {
+            border: none;
+        }
     }
 
     .error-message {
         color: colors.colorTheme(app-red);
         position: absolute;
-        top: 0.625rem;
+        top: 1.5rem;
         right: 0.5rem;
     }
 

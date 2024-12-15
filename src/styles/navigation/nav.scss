@@ -3,6 +3,7 @@
 @use '../variables/font.scss' as font;
 
 .nav-container {
+    width: 100%;
     justify-content: space-between;
     padding: util.gutter(xs);
 
@@ -10,9 +11,10 @@
         padding: 1.5rem;
     }
     @media (min-width: 1440px) {
-        height: 100%;
-        @include util.flex-container(column,center,center);
+        @include util.flex-container(column,wrap,flex-start,center);
         padding: util.gutter(default);
+        max-height: 57rem;
+        min-height: 57rem;
     } 
     .brand {
         @include util.margin(default);
@@ -26,8 +28,6 @@
     .nav-icons {
         @include util.gap(xs);
         @media (min-width: 768px) {
-            max-width: 1.5rem;
-            max-height: 1.5rem;
             gap: 1.5rem;
         }
 
@@ -56,7 +56,6 @@
     .avatar {
         max-width: 1.5rem;
         max-height: 1.5rem;
-        align-self: center;
 
         @media (min-width: 768px) {
             max-width: 2rem;
@@ -65,7 +64,7 @@
 
         @media(min-width: 1440px) {
             margin-top: auto;
-            margin-bottom: 2rem;
+            align-self: flex-end;
         }
         
     }

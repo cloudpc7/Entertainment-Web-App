@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {  Nav, Navbar,Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import movieIcon from '../assets/logo.svg';
 import homeIcon from '../assets/icon-nav-home.svg';
 import homeFull from '../assets/icon-nav-home -full.svg';
@@ -31,7 +32,7 @@ const Navigation =  () => {
             <Navbar.Brand className="brand"><Image className="icon" src={movieIcon}/></Navbar.Brand>
             <Nav className="nav-icons">
                 <Nav.Link 
-                    href="#home"
+                    href="/"
                 >
                     <Image 
                         className="icon" 
@@ -47,7 +48,7 @@ const Navigation =  () => {
 
                 </Nav.Link>
                 <Nav.Link 
-                    href="#movies"
+                    href="/movies"
                 >
                     <Image 
                         className="icon" 
@@ -61,7 +62,7 @@ const Navigation =  () => {
                     />
                 </Nav.Link>
                 <Nav.Link 
-                    href="#tvseries"
+                    href="/tvseries"
                 >
                     <Image 
                         className="icon"  
@@ -76,7 +77,7 @@ const Navigation =  () => {
 
                 </Nav.Link>
                 <Nav.Link 
-                    href="#bookmarked"
+                    href="/bookmarked"
                 >
                     <Image 
                     className="icon" 
