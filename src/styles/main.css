@@ -75,13 +75,6 @@ body {
   background-color: #10141E !important;
   color: #ffffff;
   font-family: "Outfit", sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  body .container {
-    max-width: 100%;
-  }
 }
 @media (min-width: 1200px) {
   body .h1, body h1 {
@@ -98,4 +91,65 @@ body h3, body .h3 {
 }
 body h1, body .h1, body h2, body .h2, body h3, body .h3, body p, body .card-title, body .form-label {
   margin: 0;
+}
+body .app-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 3rem;
+}
+@media (min-width: 1440px) {
+  body .app-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    padding: 0 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2.25rem;
+  }
+}
+body .app-container .app-row {
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  body .app-container .app-row {
+    margin-top: 1.44rem;
+    align-items: center;
+  }
+}
+@media (min-width: 1440px) {
+  body .app-container .app-row {
+    grid-column: 1;
+    align-self: flex-start;
+    margin-top: 2rem;
+  }
+}
+body .app-container .app-row .nav-col {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+  background-color: #161D2F;
+  margin: 0;
+  max-width: 44.9375rem;
+}
+@media (min-width: 576px) {
+  body .app-container .app-row .nav-col {
+    border-radius: 0.625rem;
+  }
+}
+@media (min-width: 1440px) {
+  body .app-container .app-row .nav-col {
+    width: 6rem;
+    min-height: 61rem;
+    max-height: 61rem;
+    padding: 2rem;
+    align-items: flex-start;
+  }
 }/*# sourceMappingURL=main.css.map */

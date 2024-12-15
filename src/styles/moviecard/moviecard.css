@@ -21,28 +21,44 @@
 .movie-card {
   min-width: 15rem;
   min-height: 8.75rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   border: none;
   border-radius: 0.5rem;
+}
+@media (min-width: 768px) {
+  .movie-card {
+    min-width: 29.375rem;
+    max-width: 29.375rem;
+    min-height: 14.375rem;
+    max-height: 14.375rem;
+  }
+}
+@media (min-width: 1440px) {
+  .movie-card {
+    min-width: 29.375rem;
+    max-width: 29.375rem;
+  }
 }
 .movie-card .movie-image {
   min-width: 15rem;
   min-height: 8.75rem;
 }
 @media (min-width: 768px) {
-  .movie-card {
+  .movie-card .movie-image {
     min-width: 29.375rem;
     max-width: 29.375rem;
-  }
-}
-@media (min-width: 1440px) {
-  .movie-card {
-    min-width: 17.5rem;
-    max-width: 17.5rem;
-    width: 100%;
+    min-height: 14.375rem;
+    max-height: 14.375rem;
   }
 }
 @media (min-width: 1440px) {
   .movie-card .movie-image {
+    max-width: 29.375rem;
+    min-width: 29.375rem;
     min-height: 14.375rem;
     max-height: 14.375rem;
   }
@@ -77,13 +93,17 @@
   align-self: flex-end;
   color: #ffffff;
   font-size: 0.75rem;
-  padding: 0.5rem 0.5rem;
+  padding-left: 0.75rem;
+  padding-bottom: 1.2rem;
+  padding-top: 0;
+  padding-right: 0;
   gap: 0.25rem;
 }
 @media (min-width: 768px) {
   .movie-card .movie .movie-info {
     font-size: 0.9375rem;
-    padding: 0 0 1.5rem 1.5rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 }
 @media (min-width: 1440px) {
@@ -134,6 +154,7 @@
   grid-template-rows: 1fr;
   max-width: 10.25rem;
   background-color: #10141E;
+  border: none;
   gap: 0.5rem;
 }
 @media (min-width: 768px) {

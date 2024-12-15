@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.default {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.HeadingLarge {
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.BodySmall {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.movie-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+@media (min-width: 1440px) {
+  .movie-container {
+    display: grid;
+    grid-column: 2;
+    padding-bottom: 3rem;
+  }
+}
+.movie-container .movie-row {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.movie-container .movie-row .search-col {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .movie-container .movie-row .search-col {
+    margin-top: 4.06rem;
+    margin-bottom: 2.19rem;
+  }
+}
+@media (min-width: 1440px) {
+  .movie-container .movie-row .sub-title {
+    margin-bottom: 2.38rem;
+  }
+}
+.movie-container .movie-row .movies-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .movie-container .movie-row .movies-col {
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 1440px) {
+  .movie-container .movie-row .movies-col {
+    grid-template-columns: repeat(4, minmax(min-content, max-content));
+    gap: 2rem;
+  }
+}/*# sourceMappingURL=movies.css.map */

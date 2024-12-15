@@ -19,16 +19,17 @@
 }
 
 .recommend-container {
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-self: flex-start;
+  justify-content: flex-start;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  margin: 0;
   gap: 1rem;
 }
 @media (min-width: 768px) {
   .recommend-container {
     grid-template-columns: repeat(3, auto);
-    grid-template-rows: 1fr;
-    gap: 1.81rem;
+    gap: 1.5rem;
   }
 }
 @media (min-width: 1440px) {
