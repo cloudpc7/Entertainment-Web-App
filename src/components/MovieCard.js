@@ -6,9 +6,18 @@ import bookmarkFull from '../assets/icon-bookmark-full.svg';
 import movie from '../assets/icon-category-movie.svg';
 import tv from '../assets/icon-category-tv.svg';
 import '../styles/moviecard/moviecard.scss';
-const MovieCard = ({category,isTrending,trending, isbookMarked, rating, thumbnail, title, year }) => {
+const MovieCard = ({
+        category,
+        isTrending,
+        trending, 
+        isBookmarked, 
+        rating, 
+        thumbnail, 
+        title, 
+        year, 
+        handleBookmark
+    }) => {
 
-    const [isBookmarked, setIsBookmarked ] = useState(false);
     const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -30,7 +39,7 @@ const MovieCard = ({category,isTrending,trending, isbookMarked, rating, thumbnai
                     <CardImgOverlay className="movie">
                         <div className="ring">
                             <Image
-                                onClick={() => setIsBookmarked(true)}
+                                onClick={() => handleBookmark(title)}
                                 src={isBookmarked ? bookmarkFull : bookmark}
                                 className="bookmark"
                             />
@@ -70,7 +79,7 @@ const MovieCard = ({category,isTrending,trending, isbookMarked, rating, thumbnai
                     <CardImgOverlay className="movie">
                         <div className="ring">
                             <Image
-                                onClick={() => setIsBookmarked(true)}
+                                onClick={() => handleBookmark(title)}
                                 src={isBookmarked ? bookmarkFull : bookmark}
                                 className="bookmark"
                             />

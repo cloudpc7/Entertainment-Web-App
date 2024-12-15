@@ -22,12 +22,13 @@
 
 .search-container {
     padding: util.gutter(default);
+    position: relative;
     .search-bar {
         background-color: colors.colorTheme(app-black);
         text-align: start;
-        min-width: 15rem;
+        min-width: 20rem;
         border:none;
-
+        color: colors.colorTheme(app-white);
         @media (min-width: 768px) {
             min-width: 28rem;
         }
@@ -42,5 +43,19 @@
                 font-size: font.font-size(lg);
             }
         }
+    }
+
+    .error-message {
+        color: colors.colorTheme(app-red);
+        position: absolute;
+        top: 0.625rem;
+        right: 0.5rem;
+    }
+
+    .spinner {
+        color: colors.colorTheme(app-red);
+        position: absolute;
+        top: 0.625rem;
+        right: 0.5rem;
     }
 }

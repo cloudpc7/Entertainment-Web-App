@@ -2,20 +2,20 @@ import MovieCard from './MovieCard';
 import { Container } from 'react-bootstrap';
 import '../styles/trending/trending.scss';
 
-const Trending = ({ isTrending }) => {
-  
+const Trending = ({ isTrending, handleBookmark  }) => {
     return (
+        
         <Container className="trending-container">
             {
                 isTrending.map((movie) => {
                     const { 
                         category, 
-                        isBookmarked,
                         isTrending,
+                        isBookmarked,
                         rating, 
                         thumbnail, 
                         title, 
-                        year 
+                        year
                     } = movie;
 
                     return (
@@ -23,6 +23,7 @@ const Trending = ({ isTrending }) => {
                                     key={title}
                                     category={category}
                                     isBookmarked={isBookmarked}
+                                    handleBookmark={handleBookmark}
                                     isTrending={isTrending}
                                     rating={rating}
                                     thumbnail={thumbnail}
