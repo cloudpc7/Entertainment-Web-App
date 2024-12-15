@@ -35,14 +35,30 @@ body {
         @include util.margin(default);
         width: 100%;
         max-width: 100%;
-        margin-bottom: 3rem;
         @media (min-width: 1440px) {
             display: grid;
             grid-template-columns: repeat(2, minmax(min-content,max-content));
             padding: 0 2rem;
-            align-items: flex-start;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 2.25rem;
+        }
+
+        .login-row {
+            @include util.flex-container();
+            padding: util.gutter(default);
+            @include util.margin(default);
+            @media (min-width: 1440px) {
+                display: grid;
+                grid-column: 2;
+            }
+            .login-col {
+                @include util.flex-container();
+                padding: util.gutter(default);
+                @include util.margin(default);
+                @media (min-width: 1440px) {
+                    grid-column: 1 / span 2;
+                }
+            }
         }
 
         .app-row {

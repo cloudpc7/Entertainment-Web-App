@@ -97,16 +97,43 @@ body .app-container {
   margin: 0;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 3rem;
 }
 @media (min-width: 1440px) {
   body .app-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     padding: 0 2rem;
-    align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 2.25rem;
+  }
+}
+body .app-container .login-row {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 1440px) {
+  body .app-container .login-row {
+    display: grid;
+    grid-column: 2;
+  }
+}
+body .app-container .login-row .login-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 1440px) {
+  body .app-container .login-row .login-col {
+    grid-column: 1/span 2;
   }
 }
 body .app-container .app-row {

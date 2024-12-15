@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage';
 import Movies from './pages/Movies';
 import TVSeries from './pages/TVSeries';
 import Bookmarked from './pages/Bookmarked';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [movies, setMovies] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -57,66 +58,84 @@ function App() {
 
   return (
     <Container className="app-container">
-      <Row className="app-row">
-        <Col className="nav-col">
-          <Navigation />
+      <Row className="login-row">
+        <Col className="login-col">
+          <LoginPage 
+            isLoggedIn={isLoggedIn}
+          />
         </Col>
       </Row>
-      <Routes>
-        <Route path="/" element={
-          <HomePage 
-            movies={movies} 
-            handleBookmark={handleBookmark} 
-            isLoading={isLoading}
-            searchTerm={searchTerm}
-            searchResults={searchResults}
-            handleSearch={handleSearch}
+      {
+        isLoggedIn ? (
+          <>
+            <Row className="app-row">
+              <Col className="nav-col">
+                <Navigation />
+              </Col>
+            </Row>
+            <Routes>
+              <Route 
+                path="/" 
+                element={
+                  <HomePage 
+                    movies={movies} 
+                    handleBookmark={handleBookmark} 
+                    isLoading={isLoading}
+                    searchTerm={searchTerm}
+                    searchResults={searchResults}
+                    handleSearch={handleSearch}
+                  />
+                }          
+              />
+              <Route 
+                path="/movies" 
+                element={
+                  <Movies 
+                  movies={movies}
+                  handleBookmark={handleBookmark}
+                  handleSearch={handleSearch}
+                  isLoading={isLoading}
+                  searchTerm={searchTerm}
+                  searchResults={searchResults} 
+
+                  />
+                }
+              />
+              <Route 
+                path="/tvseries" 
+                element={
+                  <TVSeries 
+                    movies={movies}
+                    handleBookmark={handleBookmark}
+                    handleSearch={handleSearch}
+                    isLoading={isLoading}
+                    searchTerm={searchTerm}
+                    searchResults={searchResults} 
+                  />
+                }
+              />
+              <Route 
+                path="/bookmarked" 
+                element={
+                  <Bookmarked 
+                    movies={movies}
+                    handleBookmark={handleBookmark}
+                    handleSearch={handleSearch}
+                    isLoading={isLoading}
+                    searchTerm={searchTerm}
+                    searchResults={searchResults} 
+                  />
+                }
+              />
+            </Routes>
+          </>
+        ) : (
+          <Navigate 
+            to="/login"
+            reaplce
           />
-        }          
-        />
-        <Route 
-          path="/movies" 
-          element={
-            <Movies 
-              movies={movies}
-              handleBookmark={handleBookmark}
-              handleSearch={handleSearch}
-              isLoading={isLoading}
-              searchTerm={searchTerm}
-              searchResults={searchResults} 
-
-            />
-          }
-        />
-        <Route 
-          path="/tvseries" 
-          element={
-            <TVSeries 
-              movies={movies}
-              handleBookmark={handleBookmark}
-              handleSearch={handleSearch}
-              isLoading={isLoading}
-              searchTerm={searchTerm}
-              searchResults={searchResults} 
-            />
-          }
-
-        />
-        <Route 
-          path="/bookmarked" 
-          element={
-            <Bookmarked 
-              movies={movies}
-              handleBookmark={handleBookmark}
-              handleSearch={handleSearch}
-              isLoading={isLoading}
-              searchTerm={searchTerm}
-              searchResults={searchResults} 
-            />
-          }
-
-        />
-      </Routes>
+        )
+      }
     </Container>
   );
 }

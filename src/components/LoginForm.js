@@ -1,8 +1,9 @@
 import {Form, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import validator from 'validator';
 import addUser from '../utilities/userAPI';
-
+import { useCookies } from 'react-cookie';
 import '../styles/login/login.scss';
 
 const LoginForm = () => {
@@ -10,6 +11,8 @@ const LoginForm = () => {
     const [signUp, setSignUp] = useState(false);
     const [touched, setTouched] = useState({});
     const [errMsg, setErrMsg] = useState({});
+    const [cookies, setCookies] = useCookies(['token']);
+    const navigate = useNavigate();
 
     const [signUpData, setSignUpData] = useState({ // create sign up data object
         email: '',
@@ -35,7 +38,25 @@ const LoginForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formDataToSubmit = signUp ? signUpData : formData; // logic to handle whether data is coming from signup form or
-                                                                 // or login form
+        const formData = {...formData};
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body : JSON.stringify(formData)
+            });
+
+            if(response.ok) {
+                const data = await response.json();
+                const { token } = data;
+                setCookies('token', token, { path: '/' });
+                navigate('/');
+            }
+            
+        }   catch(error){
+            console.error('Error during login', error);
+        }   
+                                                        // or login form
         try {
 
             await addUser(formDataToSubmit);
@@ -180,6 +201,7 @@ const LoginForm = () => {
                                 placeholder="Password"
                                 value={signUpData.password}
                                 name="password"
+                                autocomplete="current-password"
                                 required
                                 onChange={handleChange}
                                 onBlur={handleBlur}
