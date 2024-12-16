@@ -2,43 +2,66 @@
 @use '../variables/utilities.scss' as util;
 @use '../variables/font.scss' as font;
 
+
+.search-container {
+    @include util.flex-container(row,wrap,flex-start,center);
+    padding: 0;
+    gap: 1rem;
+}
+
 .search-btn {
+    display: inline-block;
     background-color: colors.colorTheme(app-black);
     border:none;
-    padding: util.gutter(default);
+    padding: 1.62rem 1rem;
+
+    @media (min-width:48rem) {
+        padding: 2.12rem 2rem;
+    }
+
     .search-img {
         max-width: 1.5rem;
         max-height: 1.5rem;
-        align-self: center;
-
+        
         @media (min-width: 768px) {
             max-width: 2rem;
             max-height: 2rem;
         }
     }
+
+    .form-control {
+        border: none;
+
+        &:active {
+            border: none;
+        }
+        &:focus {
+            border: none;
+        }
+    }
 }
 
-.search-container {
-    padding: 1rem util.gutter(default);
-    position: relative;
-
-    @media (min-width: 1440px) {
-        padding: 0;
-    }
-
     .search-bar {
+        display: inline-block;
         background-color: colors.colorTheme(app-black);
         text-align: start;
-        min-width: 19rem;
         border:none;
-        margin-left: 0.5rem;
+        min-width: 13.375rem;
+        max-width: 13.375rem;
+        padding: 1.62rem 0;
+        margin: 0;
         color: colors.colorTheme(app-white);
         caret-color: colors.colorTheme(app-red);
-        @media (min-width: 768px) {
-            min-width: 28rem;
+        transition: unset;
+
+        @media (min-width:48rem) {
+            padding: 2.12rem 0;
+            min-width: 21rem;
+            max-width: 21rem;
         }
 
         &::placeholder {
+            font-size: 1rem;
             color: colors.colorTheme(app-white);
             opacity: 0.4979;
             width: 100%;
@@ -49,8 +72,16 @@
             }
         }
 
-        &:active, &:focus {
+        &:active {
+            background-color: colors.colorTheme(app-black);
+            border: 0;
+            transition: unset;
+        }
+
+        &:focus {
             border: none;
+            background-color: colors.colorTheme(app-black);
+            transition: unset;
         }
     }
 
@@ -67,4 +98,3 @@
         top: 0.625rem;
         right: 0.5rem;
     }
-}

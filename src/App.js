@@ -3,7 +3,6 @@ import movieApi from './utilities/movieApi';
 import { search } from './utilities/search';
 import "./styles/main.scss";
 import LoginPage from './pages/LoginPage';
-import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
 import Movies from './pages/Movies';
 import TVSeries from './pages/TVSeries';
@@ -100,7 +99,7 @@ function App() {
     //   setErrMsg({ password: 'Login failed. Please try again.' });
     // }
     setIsLoggedIn(true);
-    navigate('/Entertainment-Web-App/home');
+    navigate('home');
     setTouched({}); 
   };
 
@@ -168,39 +167,30 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    if (isLoggedIn && location.pathname === '/Entertainment-Web-App') {
-      navigate('/Entertainment-Web-App/home');
-    }
-  }, [isLoggedIn, location.pathname, navigate]);
-
   return (
     <Container className="app-container">
-      {
-        isLoggedIn && <Navigation />
-      }
       <Routes>
         <Route 
-          path="/Entertainment-Web-App/login"
+          path="/login"
           element={
             <LoginPage 
-                IsLoggedIn={isLoggedIn}
-                login={login}
-                signUp={signUp}
-                errMsg
-                formData={formData}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                handleToggleForm={handleToggleForm}
+              IsLoggedIn={isLoggedIn}
+              login={login}
+              signUp={signUp}
+              errMsg
+              formData={formData}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              handleToggleForm={handleToggleForm}
             />
           }
         />
         {
-          isLoggedIn && (
+          isLoggedIn ? (
             <>
               <Route 
-                path="Entertainment-Web-App/home"
+                path="/home"
                 element={
                   <HomePage 
                     movies={movies} 
@@ -212,56 +202,26 @@ function App() {
                   />
                 }
               />
-              <Route 
-                path="/Entertainment-Web-App/home"
-                element={
-                  <Movies 
-                    movies={movies} 
-                    handleBookmark={handleBookmark} 
-                    isLoading={isLoading}
-                    searchTerm={searchTerm}
-                    searchResults={searchResults}
-                    handleSearch={handleSearch}
-                  />
-                }
-              />
-              <Route 
-                path="/Entertainment-Web-App/home"
-                element={
-                  <TVSeries 
-                    movies={movies} 
-                    handleBookmark={handleBookmark} 
-                    isLoading={isLoading}
-                    searchTerm={searchTerm}
-                    searchResults={searchResults}
-                    handleSearch={handleSearch}
-                  />
-                }
-              />
-              <Route 
-                path="/Entertainment-Web-App/home"
-                element={
-                  <Bookmarked
-                    movies={movies} 
-                    handleBookmark={handleBookmark} 
-                    isLoading={isLoading}
-                    searchTerm={searchTerm}
-                    searchResults={searchResults}
-                    handleSearch={handleSearch}
-                  />
-                }
-              />
             </>
-          )}
-          <Route 
-            path="/Entertainment-Web-App/login"
-            element={
-              <Navigate
-                replace 
-                to="/Entertainment-Web-App/login"
-              />
-            }
-          />
+          ) : (
+            <Route 
+              path="/login"
+              element={
+                <LoginPage 
+                  IsLoggedIn={isLoggedIn}
+                  login={login}
+                  signUp={signUp}
+                  errMsg
+                  formData={formData}
+                  handleSubmit={handleSubmit}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  handleToggleForm={handleToggleForm}
+                />
+              }
+            />
+          )
+        }
       </Routes>
     </Container>
   );

@@ -3,57 +3,47 @@
 @use '../variables/font.scss' as font;
 
 .login-container {
-    max-width: 90rem;
-    max-height: 64rem;
-    width: 100%;
-    height: 100%;
     @include util.flex-container(column,wrap,center,center);
     @include util.margin(default);
     @include util.gap(mobilexl);
-    padding: 3rem util.gutter(xs);
+    padding: util.gutter(default);
+    gap: 3.65rem;
 
-    @media (min-width: 768px) {
-        padding: util.gutter(xlarge) 0;
-        @include util.gap(lg);
+    @media (min-width: 48rem) {
+        gap: 4rem;
     }
 
-    @media (min-width: 1440px) {
-        @include util.gap(xl);
-        margin: 0 auto;
+    @media (min-width: 48rem) {
+        gap: 5.19rem;
+    }
+
+    .movie-icon {
+        width: 2rem;
+        height: 1.6rem;
     }
 
     .form-container {
-        @include util.flex-container(column,wrap,start,start);
-        padding: util.gutter(xs);
+        @include util.flex-container(column,wrap,center,start);
         background-color: colors.colorTheme(app-dark-blue);
         border-radius: 1.25rem;
-        @include util.gap(tabletXl);
+        padding: 1.5rem;
+        gap: 2.5rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: 48rem) {
             padding: 2rem;
-            @include util.gap(md);
+            gap: 2.5rem;
         }
 
-        @media (min-width: 1440px) {
-            max-width: 25rem;
-            max-height: 23.3125rem;
-            width: 100%;
-            height: 100%;
-        }
-        
         .login-title {
             letter-spacing: -0.03125rem;
             font-size: font.font-size(xl);
         }
 
         .form {
-            @include util.flex-container();
+            @include util.flex-container(column,wrap,flex-start,flex-start);
             @include util.gap(tabletsm);
             position: relative;
-
-            @media (min-width: 768px) {
-                @include util.flex-container(column,wrap,flex-start,flex-start);        
-            }
+            gap: 1.56rem;
 
             .form-control {
                 @include util.input-styles();

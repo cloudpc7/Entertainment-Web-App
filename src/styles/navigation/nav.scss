@@ -3,18 +3,20 @@
 @use '../variables/font.scss' as font;
 
 .nav-container {
-    width: 100%;
     justify-content: space-between;
-    padding: util.gutter(xs);
+    padding: 1rem;
+    background-color: colors.colorTheme(app-dark-blue);
 
     @media (min-width: 768px) {
         padding: 1.5rem;
+        border-radius: 0.625rem;
     }
     @media (min-width: 1440px) {
-        @include util.flex-container(column,wrap,flex-start,center);
-        padding: util.gutter(default);
-        max-height: 57rem;
-        min-height: 57rem;
+        grid-column: 1;
+        @include util.flex-container(column,wrap,center,center);
+        padding: 2rem;
+        max-width: 6rem;
+        min-height: 60rem;
     } 
     .brand {
         @include util.margin(default);

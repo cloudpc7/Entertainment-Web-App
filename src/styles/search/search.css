@@ -18,15 +18,30 @@
   color: #ffffff;
 }
 
+.search-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0;
+  gap: 1rem;
+}
+
 .search-btn {
+  display: inline-block;
   background-color: #10141E;
   border: none;
-  padding: 0;
+  padding: 1.62rem 1rem;
+}
+@media (min-width: 48rem) {
+  .search-btn {
+    padding: 2.12rem 2rem;
+  }
 }
 .search-btn .search-img {
   max-width: 1.5rem;
   max-height: 1.5rem;
-  align-self: center;
 }
 @media (min-width: 768px) {
   .search-btn .search-img {
@@ -34,60 +49,77 @@
     max-height: 2rem;
   }
 }
+.search-btn .form-control {
+  border: none;
+}
+.search-btn .form-control:active {
+  border: none;
+}
+.search-btn .form-control:focus {
+  border: none;
+}
 
-.search-container {
-  padding: 1rem 0;
-  position: relative;
-}
-@media (min-width: 1440px) {
-  .search-container {
-    padding: 0;
-  }
-}
-.search-container .search-bar {
+.search-bar {
+  display: inline-block;
   background-color: #10141E;
   text-align: start;
-  min-width: 19rem;
   border: none;
-  margin-left: 0.5rem;
+  min-width: 13.375rem;
+  max-width: 13.375rem;
+  padding: 1.62rem 0;
+  margin: 0;
   color: #ffffff;
   caret-color: #FC4747;
+  transition: unset;
 }
-@media (min-width: 768px) {
-  .search-container .search-bar {
-    min-width: 28rem;
+@media (min-width: 48rem) {
+  .search-bar {
+    padding: 2.12rem 0;
+    min-width: 21rem;
+    max-width: 21rem;
   }
 }
-.search-container .search-bar::-moz-placeholder {
+.search-bar::-moz-placeholder {
+  font-size: 1rem;
   color: #ffffff;
   opacity: 0.4979;
   width: 100%;
   caret-color: #FC4747;
 }
-.search-container .search-bar::placeholder {
+.search-bar::placeholder {
+  font-size: 1rem;
   color: #ffffff;
   opacity: 0.4979;
   width: 100%;
   caret-color: #FC4747;
 }
 @media (min-width: 768px) {
-  .search-container .search-bar::-moz-placeholder {
+  .search-bar::-moz-placeholder {
     font-size: 1.5rem;
   }
-  .search-container .search-bar::placeholder {
+  .search-bar::placeholder {
     font-size: 1.5rem;
   }
 }
-.search-container .search-bar:active, .search-container .search-bar:focus {
+.search-bar:active {
+  background-color: #10141E;
+  border: 0;
+  transition: unset;
+}
+.search-bar:focus {
   border: none;
+  background-color: #10141E;
+  transition: unset;
 }
-.search-container .error-message {
+
+.error-message {
   color: #FC4747;
   position: absolute;
   top: 1.5rem;
   right: 0.5rem;
 }
-.search-container .spinner {
+
+.spinner {
   color: #FC4747;
   position: absolute;
   top: 0.625rem;

@@ -1,5 +1,5 @@
 import { useState , useEffect, useRef } from 'react';
-import { Form, Button, Image, Spinner  } from 'react-bootstrap';
+import { Form, Button, Image, Spinner, Container  } from 'react-bootstrap';
 import searchBar from '../assets/icon-search.svg';
 import '../styles/search/search.scss';
 
@@ -52,16 +52,16 @@ const Searchbar = ({movies, onSearch}) => {
     },[input,errMsg]);
 
     return (
-        <>
+        <Container className="search-container">
             <div className="search-btn" type="submit" >
                 <Image className="search-img" src={searchBar} alt="magnifying glass" />
             </div>
-                <Form className="search-container">
+                <Form className="search-form">
                     <Form.Group>
                         <Form.Control 
                             type="search"
                             placeholder="Search for movies or TV series"
-                            className="search-bar"
+                            className="search-bar border-0"
                             arai-label="Search"
                             value={input}
                             onChange={handleChange}
@@ -72,7 +72,7 @@ const Searchbar = ({movies, onSearch}) => {
                         }
                     </Form.Group>
                 </Form>
-        </>
+        </Container>
     )
 }
 

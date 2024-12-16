@@ -3,75 +3,98 @@
 @use '../variables/font.scss' as font;
 
 .home-container {
-    grid-column: 2;
-    padding: 0 util.gutter(xs);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: util.gutter(default);
     @include util.margin(default);
-    @media (min-width: 768px) {
-        @include util.margin(default);
+
+    @media (min-width: 90rem) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(min-content,max-content));
+        align-items: start;
+        justify-items: start;
+        gap: 2.25rem;
     }
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    // padding: 0 util.gutter(xs);
+    // @include util.margin(default);
+    // @media (min-width: 768px) {
+    //     @include util.margin(default);
+    // }
 
-    @media (min-width: 1440px) {
-        padding: util.gutter(default);
-    }
+    // @media (min-width: 1440px) {
+    //     padding: util.gutter(default);
+    // }
 
-    .home {
-        flex-direction: column;
-        padding: util.gutter(default);
+    // .home {
+    //     flex-direction: column;
+    //     padding: util.gutter(default);
 
-        .search-col {
-            grid-column: 2;
-            padding: 0 util.gutter(xs);
-            @include util.margin(default);
-            @include util.flex-container(row,wrap,flex-start,center);
+    //     .nav-col {
+    //         display: flex;
+    //         flex-directioN: row;
+    //         align-self: center;
+    //         align-items: center;
+    //     }
 
-            @media (min-width: 768px) {
-                padding: 0 util.gutter(medium);
-                margin-top: 2.12rem;
-            }
+    //     .search-col {
+    //         grid-column: 2;
+    //         padding: 0 util.gutter(xs);
+    //         @include util.margin(default);
+    //         @include util.flex-container(row,wrap,flex-start,center);
 
-            @media (min-width: 1440px) {
-                margin-top: 4.06rem;
-                padding: util.gutter(default);
-            }
-        }
+    //         @media (min-width: 768px) {
+    //             padding: 0 util.gutter(medium);
+    //             margin-top: 2.12rem;
+    //         }
 
-        .trending-col {
-            @include util.flex-container(column,nowrap,flex-start,flex-start);
+    //         @media (min-width: 1440px) {
+    //             margin-top: 4.06rem;
+    //             padding: util.gutter(default);
+    //         }
+    //     }
 
-            @media (min-width: 768px) {
-                padding: 0 util.gutter(medium);
-            }
+    //     .trending-col {
+    //         @include util.flex-container(column,nowrap,flex-start,flex-start);
 
-            @media (min-width: 1440px) {
-                padding: util.gutter(default);
-            }
+    //         @media (min-width: 768px) {
+    //             padding: 0 util.gutter(medium);
+    //         }
 
-            .sub-title {
-                @include util.margin(md,(top,bottom));
-                @media (min-width: 1440px) {
-                    margin-top: 2.19rem;
-                    margin-bottom: 1.56rem;
-                }
-            } 
-        }
+    //         @media (min-width: 1440px) {
+    //             padding: util.gutter(default);
+    //         }
 
-        .recommend-col {
+    //         .sub-title {
+    //             @include util.margin(md,(top,bottom));
+    //             @media (min-width: 1440px) {
+    //                 margin-top: 2.19rem;
+    //                 margin-bottom: 1.56rem;
+    //             }
+    //         } 
+    //     }
 
-            @media (min-width: 768px) {
-                padding: 0 util.gutter(medium);
-            }
+    //     .recommend-col {
 
-            @media (min-width: 1440px) {
-                padding: util.gutter(default);
-            }
+    //         @media (min-width: 768px) {
+    //             padding: 0 util.gutter(medium);
+    //         }
 
-            .sub-title {
-                @include util.margin(md,(top,bottom));
+    //         @media (min-width: 1440px) {
+    //             padding: util.gutter(default);
+    //         }
 
-                @media(min-width: 1440px) {
-                    margin: 2.5rem 0;
-                }
-            }
-        }
-    }
+    //         .sub-title {
+    //             @include util.margin(md,(top,bottom));
+
+    //             @media(min-width: 1440px) {
+    //                 margin: 2.5rem 0;
+    //             }
+    //         }
+    //     }
+    // }
 }
