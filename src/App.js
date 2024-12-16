@@ -8,8 +8,9 @@ import HomePage from './pages/HomePage';
 import Movies from './pages/Movies';
 import TVSeries from './pages/TVSeries';
 import Bookmarked from './pages/Bookmarked';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { Container, Row, Col, Nav } from 'react-bootstrap';
+import validator from 'validator';
 
 function App() {
 
@@ -18,6 +19,17 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [movies, setMovies] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [touched, setTouched] = useState({});
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [login, setLogin] = useState(true);
+  const [signUp, setSignUp] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [errMsg, setErrMsg] = useState({});
 
   useEffect(() => {
     const getMovies = async () => {
@@ -56,26 +68,139 @@ function App() {
     setSearchTerm(term);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // const { email, password } = formData;
+
+    // const hashedPassword = await bcrypt.hash(password, 10); 
+
+    // try {
+    //   const response = await fetch('/api/login', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ email, password: hashedPassword }), 
+    //   });
+
+    //   if (!response.ok) {
+    //     throw new Error('Login failed');
+    //   }
+
+    //   const data = await response.json();
+
+    //   if (data.success) {
+    //     setIsLoggedIn(true);
+    //     setCookies('token', data.token, { path: '/', secure: true, httpOnly: true }); 
+    //     navigate('/'); 
+    //   } else {
+    //     setErrMsg({ password: 'Invalid email or password' });
+    //   }
+    // } catch (error) {
+    //   console.error('Login error:', error);
+    //   setErrMsg({ password: 'Login failed. Please try again.' });
+    // }
+    setIsLoggedIn(true);
+    navigate('/Entertainment-Web-App/home');
+    setTouched({}); 
+  };
+
+  const handleToggleForm = () => {
+    setSignUp(!signUp);
+    setLogin(!login);
+    setFormData({ email: '', password: '' });
+    setSignUp({signUpEmail: '', signUpPassword: '', signUpConfirmPassword: ''})
+    setErrMsg({});
+    setTouched({});
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleBlur = (event) => {
+    const { name, value } = event.target;
+    setTouched({
+      ...touched,
+      [name]: true,
+    });
+
+    if (!value) {
+      setErrMsg({
+        ...errMsg,
+        [name]: "Can't be empty",
+      });
+    } else if (name === "email") {
+      if (!validator.isEmail(value)) {
+        setErrMsg({
+          ...errMsg,
+          [name]: "Invalid email format",
+        });
+      } else {
+        setErrMsg({
+          ...errMsg,
+          [name]: null,
+        });
+      }
+    } else if (name === "password") {
+      if (!validator.isStrongPassword(value)) {
+        setErrMsg({
+          ...errMsg,
+          [name]: (
+            <ul>
+              <li>At least 8 characters long</li>
+              <li>At least one lowercase character</li>
+              <li>At least one uppercase character</li>
+              <li>At least one number</li>
+              <li>At least one symbol</li>
+            </ul>
+          ),
+        });
+      } else {
+        setErrMsg({
+          ...errMsg,
+          [name]: null,
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn && location.pathname === '/Entertainment-Web-App') {
+      navigate('/Entertainment-Web-App/home');
+    }
+  }, [isLoggedIn, location.pathname, navigate]);
+
   return (
     <Container className="app-container">
-      <Row className="login-row">
-        <Col className="login-col">
-          <LoginPage 
-            isLoggedIn={isLoggedIn}
-          />
-        </Col>
-      </Row>
       {
-        isLoggedIn ? (
-          <>
-            <Row className="app-row">
-              <Col className="nav-col">
-                <Navigation />
-              </Col>
-            </Row>
-            <Routes>
+        isLoggedIn && <Navigation />
+      }
+      <Routes>
+        <Route 
+          path="/Entertainment-Web-App/login"
+          element={
+            <LoginPage 
+                IsLoggedIn={isLoggedIn}
+                login={login}
+                signUp={signUp}
+                errMsg
+                formData={formData}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                handleToggleForm={handleToggleForm}
+            />
+          }
+        />
+        {
+          isLoggedIn && (
+            <>
               <Route 
-                path="/" 
+                path="Entertainment-Web-App/home"
                 element={
                   <HomePage 
                     movies={movies} 
@@ -85,57 +210,59 @@ function App() {
                     searchResults={searchResults}
                     handleSearch={handleSearch}
                   />
-                }          
+                }
               />
               <Route 
-                path="/movies" 
+                path="/Entertainment-Web-App/home"
                 element={
                   <Movies 
-                  movies={movies}
-                  handleBookmark={handleBookmark}
-                  handleSearch={handleSearch}
-                  isLoading={isLoading}
-                  searchTerm={searchTerm}
-                  searchResults={searchResults} 
-
+                    movies={movies} 
+                    handleBookmark={handleBookmark} 
+                    isLoading={isLoading}
+                    searchTerm={searchTerm}
+                    searchResults={searchResults}
+                    handleSearch={handleSearch}
                   />
                 }
               />
               <Route 
-                path="/tvseries" 
+                path="/Entertainment-Web-App/home"
                 element={
                   <TVSeries 
-                    movies={movies}
-                    handleBookmark={handleBookmark}
-                    handleSearch={handleSearch}
+                    movies={movies} 
+                    handleBookmark={handleBookmark} 
                     isLoading={isLoading}
                     searchTerm={searchTerm}
-                    searchResults={searchResults} 
+                    searchResults={searchResults}
+                    handleSearch={handleSearch}
                   />
                 }
               />
               <Route 
-                path="/bookmarked" 
+                path="/Entertainment-Web-App/home"
                 element={
-                  <Bookmarked 
-                    movies={movies}
-                    handleBookmark={handleBookmark}
-                    handleSearch={handleSearch}
+                  <Bookmarked
+                    movies={movies} 
+                    handleBookmark={handleBookmark} 
                     isLoading={isLoading}
                     searchTerm={searchTerm}
-                    searchResults={searchResults} 
+                    searchResults={searchResults}
+                    handleSearch={handleSearch}
                   />
                 }
               />
-            </Routes>
-          </>
-        ) : (
-          <Navigate 
-            to="/login"
-            reaplce
+            </>
+          )}
+          <Route 
+            path="/Entertainment-Web-App/login"
+            element={
+              <Navigate
+                replace 
+                to="/Entertainment-Web-App/login"
+              />
+            }
           />
-        )
-      }
+      </Routes>
     </Container>
   );
 }

@@ -4,7 +4,19 @@ import movieIcon from '../assets/logo.svg';
 
 import "../styles/login/login.scss";
 
-const LoginPage = () => {
+const LoginPage = ({ 
+    isLoggedIn, 
+    touched, 
+    login, 
+    signUp, 
+    errMsg, 
+    formData, 
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    handleToggleForm
+    }) => {
+    
     return (
         <Container fluid className="login-container">
             <Image 
@@ -12,7 +24,19 @@ const LoginPage = () => {
                 alt="red movie clip"
                 className="movie-icon"
             />
-            <LoginForm />
+            <LoginForm 
+                IsLoggedIn={isLoggedIn}
+                touched={touched}
+                login={login}
+                signUp={signUp}
+                errMsg
+                formData={formData}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                handleToggleForm={handleToggleForm}
+
+                />
         </Container>
         
     )

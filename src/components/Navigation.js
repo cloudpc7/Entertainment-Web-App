@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {  Nav, Navbar,Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import movieIcon from '../assets/logo.svg';
 import homeIcon from '../assets/icon-nav-home.svg';
 import homeFull from '../assets/icon-nav-home -full.svg';
@@ -32,37 +32,31 @@ const Navigation =  () => {
             <Navbar.Brand className="brand"><Image className="icon" src={movieIcon}/></Navbar.Brand>
             <Nav className="nav-icons">
                 <Nav.Link 
-                    href="/"
+                    to="/home"
                 >
                     <Image 
                         className="icon" 
                         onMouseEnter={() => setHoverHome(true)}
                         onMouseLeave={() => setHoverHome(false)}
-                        onClick={() => handleClick('home')}
-                        src={
-                            active === 'home' ? homeFull : 
-                            (hoverHome ? homeFull : homeIcon)
-                        }
+                        // onClick={() => handleClick('home')}
+                        src={homeIcon}
                         style={{fill: "red"}}
                     />
 
                 </Nav.Link>
                 <Nav.Link 
-                    href="/movies"
+                    to="/movies"
                 >
                     <Image 
                         className="icon" 
                         onMouseEnter={() => setHoverMovies(true)}
                         onMouseLeave={() => setHoverMovies(false)}
-                        onClick={() => handleClick('movies')}
-                        src={
-                            active === 'movies' ? moviesFull : 
-                            (hoverMovies ? moviesFull : movies)
-                        }
+                        // onClick={() => handleClick('movies')}
+                        src={movies}
                     />
                 </Nav.Link>
                 <Nav.Link 
-                    href="/tvseries"
+                    to="/tvseries"
                 >
                     <Image 
                         className="icon"  
@@ -77,7 +71,7 @@ const Navigation =  () => {
 
                 </Nav.Link>
                 <Nav.Link 
-                    href="/bookmarked"
+                    to="/bookmarked"
                 >
                     <Image 
                     className="icon" 
