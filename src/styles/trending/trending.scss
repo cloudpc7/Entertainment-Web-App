@@ -3,13 +3,17 @@
 @use '../variables/font.scss' as font;
 
 
+
 .trending-container {
-    @include util.flex-container(row,nowrap,flex-start,center);
+    @include util.flex-container(row,flex-start,flex-start);
     @include util.gap(xs);
-    padding: util.gutter(default);
+    padding-left: 1rem;
     @include util.margin(default);
 
-    @media (min-width: 1440px) {
+    @media (min-width: 90rem) {
+        grid-column: 2;
+        grid-row: 3;
         gap: 2.5rem;
+        padding-left: 0;
     }
 }

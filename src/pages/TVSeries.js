@@ -3,33 +3,31 @@ import MovieCard from '../components/MovieCard';
 import '../styles/movies/movies.scss';
 import '../styles/search/search.scss';
 import Searchbar from '../components/Searchbar';
+import Navigation from '../components/Navigation';
 
-const TVSeries = ({ 
-    movies, 
-    handleBookmark, 
-    searchTerm, 
-    searchResults, 
-    handleSearch,
-    isLoading 
-    }) => {
+import { useContext } from 'react';
+import MovieContext  from '../MovieContext';
 
-    const tvSeries = movies.filter((movie) => movie.category === 'TV Series');
+const TVSeries = () => {
+    const {moviesArray, handleBookmark, loading, searchTerm, searchResults, handleSearch} = useContext(MovieContext);
+    const tvSeries = moviesArray.filter((movie) => movie.category === 'TV Series');
     return (
-        <>
+        <Container className="movie-container">
+            <Navigation />
         {
 
-            <Container className="movie-container">
+            <Container className="movies">
                 <Row className="movie-row">
                     <Col className="search-col">
                         <Searchbar 
                             searchResults={searchResults}
                             searchTerm={searchTerm}
                             onSearch={handleSearch}
-                            isLoading={isLoading}
+                            loading={loading}
                         />
                     </Col>
                         {
-                                isLoading ? (
+                                loading ? (
                                 <Spinner animation="border" size="lg"/>
                             ) : searchTerm && searchResults.length > 0 ? (
                                 <div className="results-container">
@@ -43,13 +41,17 @@ const TVSeries = ({
                                                 title,
                                                 year
                                             } = movie
+
+                                            const {small, medium, large } = thumbnail.regular;
                                             return (
                                                 <MovieCard 
                                                     category={category}
                                                     isBookmarked={isBookmarked}
                                                     handleBookmark={handleBookmark}
                                                     rating={rating}
-                                                    thumbnail={thumbnail}
+                                                    small={small}
+                                                    medium={medium}
+                                                    larg={large}
                                                     title={title}
                                                     year={year}
                                                 />
@@ -72,6 +74,8 @@ const TVSeries = ({
                                                 title,
                                                 year
                                                 } = movie;
+                                            
+                                            const {small, medium, large } = thumbnail.regular;
                             
                                             return (
                                                 <MovieCard 
@@ -80,7 +84,9 @@ const TVSeries = ({
                                                     isBookmarked={isBookmarked}
                                                     handleBookmark={handleBookmark}
                                                     rating={rating}
-                                                    thumbnail={thumbnail}
+                                                    small={small}
+                                                    medium={medium}
+                                                    larg={large}
                                                     title={title}
                                                     year={year}
                                                 />
@@ -94,7 +100,7 @@ const TVSeries = ({
                 </Row>  
             </Container>
         }
-        </>
+        </Container>
     )
 }
 

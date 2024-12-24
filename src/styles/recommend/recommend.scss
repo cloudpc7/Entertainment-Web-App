@@ -2,9 +2,13 @@
 @use '../variables/utilities.scss' as util;
 @use '../variables/font.scss' as font;
 
+.sub-title {
+    grid-column: 2;
+    grid-row: 4;
+}
 
 .recommend-container {
-    padding: util.gutter(default);
+    padding-left: 1rem;
     display: grid;
     justify-content: flex-start;
     grid-template-columns: repeat(2, minmax(min-content, max-content));
@@ -16,8 +20,11 @@
     }
 
     @media (min-width: 1440px) {
-       display: grid;
-       grid-template-columns: repeat(4, 1fr);
-       @include util.gap(desktop)
+        grid-column: 2;
+        grid-row: 5;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        @include util.gap(desktop);
+        padding-left: 0;
     }
 }

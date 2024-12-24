@@ -33,14 +33,7 @@ body {
         @include util.flex-container(column,wrap,center,center);
         @include util.margin(default);
         padding: util.gutter(default);
-
-        @media (min-width: 48rem) {
-            margin: 0 auto;
-            padding-top: 1.44rem;
-        }
-
-        @media (min-width: 90rem) {
-            padding-top: 2rem;
-        }
+        width: 100%;
+        max-width: 100%;
     }
 }

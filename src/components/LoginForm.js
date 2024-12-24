@@ -1,92 +1,83 @@
+import { useState, useEffect }  from 'react';
+import { useContext } from 'react';
+import  AuthContext from '../AuthContext';
 import { Form, Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-
-import { useCookies } from 'react-cookie';
-import * as bcrypt from 'bcryptjs';
 import '../styles/login/login.scss';
 
-const LoginForm = ({ 
-    isLoggedIn, 
-    touched, 
-    login, 
-    signUp, 
-    errMsg,
-    formData, 
+const LoginForm = () => {
+
+  const {
+    login,
+    signUp,
+    feedback,
+    formData,
+    message,
+    handleBlur,
     handleSubmit,
     handleChange,
-    handleBlur, 
-    handleToggleForm
-    }) => {
-  
-  const [cookies, setCookies] = useCookies(['token']);
-  const { email, password } = formData;
-  const { errMsgEmail , errMsgPassword, errMsgConfirmPassword } = errMsg;
-  const { signUpEmail, signUpPassword, signUpConfirmPassword} = signUp;
+    handleToggleForm,
+} = useContext(AuthContext);
+
+const { email, password, confirm } = formData.signUp;
 
   return (
-    <div className="form-container">
-      {signUp ? (
+   <div className="form-container">
+    {
+      signUp ? (
         <h1 className="login-title h1">Sign Up</h1>
       ) : login && (
         <h1 className="login-title h1">Login</h1>
-      )}
-
-      <Form className="form" onSubmit={handleSubmit} noValidate>
-        {signUp ? (
+      )
+    }
+    <Form className="form"  onSubmit={ handleSubmit } noValidate>
+      {
+        signUp ? (
           <>
-            <Form.Group>
+            <Form.Group controlId="signUpEmail">
               <Form.Control 
-                type="email" 
-                placeholder="Email address"
+                type="email"
+                placeholder="Enter email"
                 name="email"
-                value={signUpEmail}
-                required
+                value={email}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                isInvalid={feedback.email}
               />
-              { email && errMsgEmail && (
-                <span type="invalid" className="error-message">
-                  {errMsgEmail}
-                </span>
-              )}
+              <Form.Control.Feedback type="invalid" className="feedback" >
+                {feedback.email ? message.email : '' }
+              </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group>
+            <Form.Group controlId="password">
               <Form.Control 
-                type="password" 
-                placeholder="Password"
-                value={signUpPassword}
+                type="password"
+                placeholder="Enter password"
                 name="password"
-                autocomplete="current-password"
-                required
+                value={password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                isInvalid={ feedback.password }
               />
-              {signUpPassword && errMsgPassword && (
-                <span type="invalid" className="password-message">
-                  {errMsgPassword}
-                </span>
-              )}
+              <Form.Control.Feedback type="invalid" className="feedback">
+                { !feedback.password ?  message.password : ''}
+              </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group>
+            <Form.Group controlId="confirmPassword">
               <Form.Control 
-                type="password" 
-                placeholder="Confirm Password"
-                name="confirmPassword"
-                value={signUpConfirmPassword}
-                required
+                type="password"
+                placeholder="Confirm password"
+                name="confirm"
+                value={confirm}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                isInvalid={ feedback.confirm }
               />
-              {signUpConfirmPassword && errMsgConfirmPassword && (
-                <span type="invalid" className="confirm-message">
-                  {errMsgConfirmPassword}
-                </span>
-              )}
+              <Form.Control.Feedback type="invalid" className="feedback">
+                { feedback.confirm ?  message.confirm : ''}
+              </Form.Control.Feedback>
             </Form.Group>
             <Button 
               className="login-button" 
               type="submit" 
-              disabled={errMsg.email || errMsg.password || errMsg.confirmPassword}
             >
               Create an account
             </Button>
@@ -94,57 +85,67 @@ const LoginForm = ({
               Already have an account? 
               <span onClick={handleToggleForm}>Login</span>
             </p>
-          </>
+            {
+              message.signup ? (
+                <>
+                <p className="error-message">{message.signup}</p>
+                </>
+              ) : message.account ? (
+                <>
+                <p className="error-message">{message.account}</p>
+                </>
+              ) : ''
+            }
+          </> 
         ) : login && (
           <>
-            <Form.Group>
+          <Form.Group controlId="emailAddress">
               <Form.Control 
-                type="email" 
-                placeholder="Email address"
+                type="email"
+                placeholder="Enter email"
                 name="email"
-                value={email}
-                required
+                value={formData.login.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                isInvalid={ feedback.email }
               />
-              {email && errMsgEmail && (
-                <span className="error-message" type="invalid">
-                  {errMsgEmail}
-                </span>
-              )}
+              <Form.Control.Feedback type="invalid" className="feedback">
+                {feedback.email && message.email }
+              </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group>
+            <Form.Group controlId="loginPassword">
               <Form.Control 
-                type="password" 
-                placeholder="Password"
+                type="password"
+                placeholder="Enter password"
                 name="password"
-                value={password}
-                required
+                value={formData.login.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                isInvalid={ feedback.password  }
               />
-              {password && errMsgPassword && (
-                <span type="invalid" className="password-message">
-                  {errMsgPassword}
-                </span>
-              )}
+              <Form.Control.Feedback type="invalid" className="feedback">
+                {feedback.password && message.password}
+              </Form.Control.Feedback>
             </Form.Group>
             <Button 
               className="login-button" 
               type="submit" 
-              disabled={errMsgEmail || errMsgPassword} 
             >
               Login to your account
             </Button>
             <p className="form-switch">
-              Dont have an account? 
+              Don't have an account? 
               <span onClick={handleToggleForm}>Sign Up</span>
             </p>
+            {
+              message.login && <p className="error-message">{message.login}</p>
+            }
           </>
-        )}
-      </Form>
-    </div>
-  );
+        )
+      }
+    </Form>
+   </div>
+  )
 };
 
 export default LoginForm;

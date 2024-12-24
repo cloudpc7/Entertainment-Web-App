@@ -3,34 +3,31 @@ import MovieCard from '../components/MovieCard';
 import '../styles/movies/movies.scss';
 import '../styles/search/search.scss';
 import Searchbar from '../components/Searchbar';
+import Navigation from '../components/Navigation';
 
-const Bookmarked = ({ 
-    movies, 
-    handleBookmark, 
-    searchTerm, 
-    searchResults, 
-    handleSearch,
-    isLoading 
-    }) => {
+import { useContext } from 'react';
+import MovieContext  from '../MovieContext';
 
-    const bookMarked = movies.filter((movie) => movie.isBookmarked);
-    console.log(isLoading);
+const Bookmarked = () => {
+    const {moviesArray, handleBookmark, loading, searchTerm, searchResults, handleSearch} = useContext(MovieContext);
+    const bookMarked = moviesArray.filter((movie) => movie.isBookmarked);
     return (
-        <>
+        <Container className="movie-container">
+            <Navigation />
         {
 
-            <Container className="movie-container">
+            <Container className="movies">
                 <Row className="movie-row">
                     <Col className="search-col">
                         <Searchbar 
                             searchResults={searchResults}
                             searchTerm={searchTerm}
                             onSearch={handleSearch}
-                            isLoading={isLoading}
+                            loading={loading}
                         />
                     </Col>
                         {
-                                isLoading ? (
+                                loading ? (
                                 <Spinner animation="border" size="lg"/>
                             ) : searchTerm && searchResults.length > 0 ? (
                                 <div className="results-container">
@@ -44,13 +41,17 @@ const Bookmarked = ({
                                                 title,
                                                 year
                                             } = movie
+
+                                            const {small, medium, large } = thumbnail.regular;
                                             return (
                                                 <MovieCard 
                                                     category={category}
                                                     isBookmarked={isBookmarked}
                                                     handleBookmark={handleBookmark}
                                                     rating={rating}
-                                                    thumbnail={thumbnail}
+                                                    small={small}
+                                                    medium={medium}
+                                                    larg={large}
                                                     title={title}
                                                     year={year}
                                                 />
@@ -72,7 +73,7 @@ const Bookmarked = ({
                                                 title,
                                                 year
                                                 } = movie;
-                            
+                                                const {small, medium, large } = thumbnail.regular;
                                             return (
                                                 <MovieCard 
                                                     key={title}
@@ -80,7 +81,9 @@ const Bookmarked = ({
                                                     isBookmarked={isBookmarked}
                                                     handleBookmark={handleBookmark}
                                                     rating={rating}
-                                                    thumbnail={thumbnail}
+                                                    small={small}
+                                                    medium={medium}
+                                                    larg={large}
                                                     title={title}
                                                     year={year}
                                                 />
@@ -94,7 +97,7 @@ const Bookmarked = ({
                 </Row>  
             </Container>
         }
-        </>
+        </Container>
     )
 }
 

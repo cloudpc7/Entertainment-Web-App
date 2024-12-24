@@ -1,19 +1,57 @@
-import { useState, useEffect } from 'react';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { mapImage } from './mapImage';
+import { db } from '../firebase.config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
-const movieApi = async (movie) => {
-    const url = 'https://cloudpc7.github.io/Entertainment-Web-App/data.json';
+export const fetchMovies = createAsyncThunk('movies/fetchMovies', async() => {
     try {
-        const response = await fetch(url);
-        if(!response.ok) {
-            throw new Error(`Network response was not ok (status: ${response.status}`);
+        const q = query(collection(db,'movies'), where ('title','!=',''));
+        const querySnapshot = await getDocs(q);
+        if(querySnapshot.empty) {
+            console.log(('No documents found in the "movies" collection.'));
+            return [];
         }
+        const movies = [];
+        querySnapshot.forEach((doc) => {
+            movies.push(doc.data());
+        });
+        return movies;
 
-        const data = await response.json();
-        return data;
     } catch (error) {
-        console.error('Error fetchind data:', error);
-        return null;
+        console.error('Error fetching movies from Firestore: ', error);
+        throw error;
     }
-}
+})
 
-export default movieApi;
+const initialState = {
+    moviesArray : [],
+    isLoading: false,
+    errMsg: ''
+};
+
+const moviesSlice = createSlice({
+    name: 'movies',
+    initialState,
+    reducers: {},
+    extraReducers: (builder => {
+        builder
+        .addCase(fetchMovies.pending, (state) => {
+            state.isLoading = true;
+            state.errMsg = '';
+        })
+        .addCase(fetchMovies.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.moviesArray = action.payload;
+        })
+        .addCase(fetchMovies.rejected, (state, action) => {
+            state.isLoading = false;
+            state.errMsg = action.payload;
+        });
+    })
+});
+
+export const MoviesReducer =  moviesSlice.reducer;
+
+export const movies = (state) => {
+    return state.movies.moviesArray;
+}

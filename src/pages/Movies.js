@@ -1,39 +1,35 @@
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Spinner, Nav } from 'react-bootstrap';
+import Navigation from '../components/Navigation';
 import MovieCard from '../components/MovieCard';
 import '../styles/movies/movies.scss';
 import '../styles/search/search.scss';
 import Searchbar from '../components/Searchbar';
 
-const Movies = ({ 
-    movies, 
-    handleBookmark, 
-    searchTerm, 
-    searchResults, 
-    handleSearch,
-    isLoading 
-    }) => {
+import { useContext } from 'react';
+import MovieContext  from '../MovieContext';
 
-    const isMovies = movies.filter((movie) => movie.category === 'Movie');
-    console.log(isLoading);
+const Movies = () => {
+    const {moviesArray, handleBookmark, loading, searchTerm, searchResults, handleSearch} = useContext(MovieContext);
+    const isMovies = moviesArray.filter((movie) => movie.category === 'Movie');
     return (
-        <>
-        {
-
-            <Container className="movie-container">
-                <Row className="movie-row">
-                    <Col className="search-col">
-                        <Searchbar 
-                            searchResults={searchResults}
-                            searchTerm={searchTerm}
-                            onSearch={handleSearch}
-                            isLoading={isLoading}
-                        />
-                    </Col>
+        <Container className="movie-container">
+            <Navigation />
+                {
+                    <Container className="movies">
+                        <Row className="movie-row">
+                            <Col className="search-col">
+                                <Searchbar 
+                                    searchResults={searchResults}
+                                    searchTerm={searchTerm}
+                                    onSearch={handleSearch}
+                                    loading={loading}
+                                />
+                            </Col>
                         {
-                                isLoading ? (
+                            loading ? (
                                 <Spinner animation="border" size="lg"/>
                             ) : searchTerm && searchResults.length > 0 ? (
-                                <div className="results-container">
+                                <div className="search-results">
                                     {
                                         searchResults.map((movie) => {
                                             const {
@@ -44,13 +40,16 @@ const Movies = ({
                                                 title,
                                                 year
                                             } = movie
+                                            const {small, medium, large } = thumbnail.regular;
                                             return (
                                                 <MovieCard 
                                                     category={category}
                                                     isBookmarked={isBookmarked}
                                                     handleBookmark={handleBookmark}
                                                     rating={rating}
-                                                    thumbnail={thumbnail}
+                                                    small={small}
+                                                    medium={medium}
+                                                    larg={large}
                                                     title={title}
                                                     year={year}
                                                 />
@@ -60,7 +59,7 @@ const Movies = ({
                                 </div>
                             ) : (
                                 <>
-                                <h3 className="h3 sub-title">Movies</h3>
+                                <h3 className="h3 sub-title movies">Movies</h3>
                                 <Col className="movies-col">
                                     {
                                         isMovies.map((movie) => {
@@ -72,6 +71,7 @@ const Movies = ({
                                                 title,
                                                 year
                                                 } = movie;
+                                            const {small, medium, large } = thumbnail.regular;
                             
                                             return (
                                                 <MovieCard 
@@ -80,7 +80,9 @@ const Movies = ({
                                                     isBookmarked={isBookmarked}
                                                     handleBookmark={handleBookmark}
                                                     rating={rating}
-                                                    thumbnail={thumbnail}
+                                                    small={small}
+                                                    medium={medium}
+                                                    larg={large}
                                                     title={title}
                                                     year={year}
                                                 />
@@ -90,11 +92,11 @@ const Movies = ({
                                 </Col>
                                 </>
                                 )
-                        }
-                </Row>  
-            </Container>
-        }
-        </>
+                            }
+                        </Row>  
+                    </Container>
+                }
+        </Container>
     )
 }
 

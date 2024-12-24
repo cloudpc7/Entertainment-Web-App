@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {  Nav, Navbar,Image } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import movieIcon from '../assets/logo.svg';
 import homeIcon from '../assets/icon-nav-home.svg';
 import homeFull from '../assets/icon-nav-home -full.svg';
@@ -9,7 +9,7 @@ import moviesFull from '../assets/icon-nav-movies-full.svg';
 import tvIconFull from '../assets/icon-nav-tv-series -full.svg';
 import tvIcon from '../assets/icon-nav-tv-series.svg';
 import bookmark from '../assets/icon-nav-bookmark.svg';
-import bookmarkFull from '../assets/icon-bookmark-full.svg';
+import bookmarkFull from '../assets/icon-nav-bookmark-full.svg';
 import profileIcon from '../assets/image-avatar.png';
 
 import '../styles/navigation/nav.scss';
@@ -32,30 +32,36 @@ const Navigation =  () => {
             <Navbar.Brand className="brand"><Image className="icon" src={movieIcon}/></Navbar.Brand>
             <Nav className="nav-icons">
                 <Nav.Link 
+                    as={Link}
                     to="/home"
                 >
                     <Image 
                         className="icon" 
                         onMouseEnter={() => setHoverHome(true)}
                         onMouseLeave={() => setHoverHome(false)}
-                        // onClick={() => handleClick('home')}
-                        src={homeIcon}
-                        style={{fill: "red"}}
+                        src={
+                            active === 'home' ? homeFull : 
+                            (hoverHome ? homeFull : homeIcon)
+                        }
                     />
 
                 </Nav.Link>
-                <Nav.Link 
+                <Nav.Link
+                    as={Link}
                     to="/movies"
                 >
                     <Image 
                         className="icon" 
                         onMouseEnter={() => setHoverMovies(true)}
                         onMouseLeave={() => setHoverMovies(false)}
-                        // onClick={() => handleClick('movies')}
-                        src={movies}
+                        src={
+                            active === 'movie' ? moviesFull : 
+                            (hoverMovies ? moviesFull : movies)
+                        }
                     />
                 </Nav.Link>
-                <Nav.Link 
+                <Nav.Link
+                    as={Link} 
                     to="/tvseries"
                 >
                     <Image 
@@ -70,7 +76,8 @@ const Navigation =  () => {
                     />
 
                 </Nav.Link>
-                <Nav.Link 
+                <Nav.Link
+                    as={Link}
                     to="/bookmarked"
                 >
                     <Image 

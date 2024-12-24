@@ -16,85 +16,33 @@
         justify-items: start;
         gap: 2.25rem;
     }
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
-    // padding: 0 util.gutter(xs);
-    // @include util.margin(default);
-    // @media (min-width: 768px) {
-    //     @include util.margin(default);
-    // }
 
-    // @media (min-width: 1440px) {
-    //     padding: util.gutter(default);
-    // }
+    .trend {
+        padding: 1rem;
 
-    // .home {
-    //     flex-direction: column;
-    //     padding: util.gutter(default);
+        @media (min-width: 48rem) {
+            padding: 1.56rem;
+        }
+    }
 
-    //     .nav-col {
-    //         display: flex;
-    //         flex-directioN: row;
-    //         align-self: center;
-    //         align-items: center;
-    //     }
+    .recommend {
+        padding: 1rem;
 
-    //     .search-col {
-    //         grid-column: 2;
-    //         padding: 0 util.gutter(xs);
-    //         @include util.margin(default);
-    //         @include util.flex-container(row,wrap,flex-start,center);
+        @media (min-width: 48rem) {
+            padding: 1.56rem;
+        }
+    }
 
-    //         @media (min-width: 768px) {
-    //             padding: 0 util.gutter(medium);
-    //             margin-top: 2.12rem;
-    //         }
+    .found {
+        padding: 1rem;
+    }
 
-    //         @media (min-width: 1440px) {
-    //             margin-top: 4.06rem;
-    //             padding: util.gutter(default);
-    //         }
-    //     }
+    .search-results {
+        @include util.flex-container(row,wrap,flex-start,center);
+        gap: 0.5rem;
 
-    //     .trending-col {
-    //         @include util.flex-container(column,nowrap,flex-start,flex-start);
-
-    //         @media (min-width: 768px) {
-    //             padding: 0 util.gutter(medium);
-    //         }
-
-    //         @media (min-width: 1440px) {
-    //             padding: util.gutter(default);
-    //         }
-
-    //         .sub-title {
-    //             @include util.margin(md,(top,bottom));
-    //             @media (min-width: 1440px) {
-    //                 margin-top: 2.19rem;
-    //                 margin-bottom: 1.56rem;
-    //             }
-    //         } 
-    //     }
-
-    //     .recommend-col {
-
-    //         @media (min-width: 768px) {
-    //             padding: 0 util.gutter(medium);
-    //         }
-
-    //         @media (min-width: 1440px) {
-    //             padding: util.gutter(default);
-    //         }
-
-    //         .sub-title {
-    //             @include util.margin(md,(top,bottom));
-
-    //             @media(min-width: 1440px) {
-    //                 margin: 2.5rem 0;
-    //             }
-    //         }
-    //     }
-    // }
+        @media (min-width: 48rem) {
+            gap: 1.5rem;
+        }
+    }
 }

@@ -2,12 +2,15 @@ import MovieCard from "./MovieCard";
 import { Container } from 'react-bootstrap';
 import '../styles/recommend/recommend.scss';
 
-const Recommended = ({recommended, handleBookmark }) => {
-        
+import { useContext } from 'react';
+import MovieContext from '../MovieContext';
+
+const Recommended = () => {
+    const { recommend, handleBookmark} = useContext(MovieContext);
     return (
         <Container className="recommend-container">
             {
-                recommended.map((movie) => {
+                recommend.map((movie) => {
                     const {
                         category, 
                         isBookmarked, 
@@ -16,6 +19,7 @@ const Recommended = ({recommended, handleBookmark }) => {
                         title,
                         year
                         } = movie;
+                    const { small, medium, large } = thumbnail.regular;
                     
                     return (
                         <MovieCard 
@@ -24,7 +28,9 @@ const Recommended = ({recommended, handleBookmark }) => {
                             isBookmarked={isBookmarked}
                             handleBookmark={handleBookmark}
                             rating={rating}
-                            thumbnail={thumbnail}
+                            small={small}
+                            medium={medium}
+                            large={large}
                             title={title}
                             year={year}
                         />

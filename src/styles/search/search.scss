@@ -5,19 +5,23 @@
 
 .search-container {
     @include util.flex-container(row,wrap,flex-start,center);
+    position: relative;
+    width: 100%;
     padding: 0;
     gap: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+
+    @media (min-width: 90rem) {
+        margin-top: 2.06rem;
+    }
 }
 
 .search-btn {
     display: inline-block;
     background-color: colors.colorTheme(app-black);
     border:none;
-    padding: 1.62rem 1rem;
-
-    @media (min-width:48rem) {
-        padding: 2.12rem 2rem;
-    }
+    margin: 1.62rem 1rem;
 
     .search-img {
         max-width: 1.5rem;
@@ -29,15 +33,8 @@
         }
     }
 
-    .form-control {
-        border: none;
-
-        &:active {
-            border: none;
-        }
-        &:focus {
-            border: none;
-        }
+    @media (min-width: 90rem) {
+        margin: 1.62rem 0 1.62rem 0;
     }
 }
 
@@ -46,18 +43,16 @@
         background-color: colors.colorTheme(app-black);
         text-align: start;
         border:none;
-        min-width: 13.375rem;
+        min-width: 18.375rem;
         max-width: 13.375rem;
-        padding: 1.62rem 0;
+        padding: 1rem;
         margin: 0;
         color: colors.colorTheme(app-white);
         caret-color: colors.colorTheme(app-red);
         transition: unset;
-
+        color: white;
         @media (min-width:48rem) {
-            padding: 2.12rem 0;
-            min-width: 21rem;
-            max-width: 21rem;
+            min-width: 24rem;
         }
 
         &::placeholder {
@@ -72,14 +67,9 @@
             }
         }
 
-        &:active {
-            background-color: colors.colorTheme(app-black);
-            border: 0;
-            transition: unset;
-        }
-
         &:focus {
             border: none;
+            color: colors.colorTheme(app-white);
             background-color: colors.colorTheme(app-black);
             transition: unset;
         }
@@ -88,8 +78,8 @@
     .error-message {
         color: colors.colorTheme(app-red);
         position: absolute;
-        top: 1.5rem;
-        right: 0.5rem;
+        top: 4.82rem;
+        right: 1rem;
     }
 
     .spinner {

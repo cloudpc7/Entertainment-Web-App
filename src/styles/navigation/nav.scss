@@ -10,13 +10,16 @@
     @media (min-width: 768px) {
         padding: 1.5rem;
         border-radius: 0.625rem;
+        margin-top: 1.44rem;
     }
     @media (min-width: 1440px) {
         grid-column: 1;
+        grid-row: 1/12;
         @include util.flex-container(column,wrap,center,center);
         padding: 2rem;
         max-width: 6rem;
         min-height: 60rem;
+        margin-top: 2rem;
     } 
     .brand {
         @include util.margin(default);

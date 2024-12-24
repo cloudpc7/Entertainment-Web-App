@@ -7,14 +7,15 @@
     @include util.margin(default);
     @include util.gap(mobilexl);
     padding: util.gutter(default);
-    gap: 3.65rem;
-
+    gap: 3.34rem;
+    margin-top: 3rem;
     @media (min-width: 48rem) {
         gap: 4rem;
     }
 
-    @media (min-width: 48rem) {
+    @media (min-width: 90rem) {
         gap: 5.19rem;
+        margin-top: 5rem;
     }
 
     .movie-icon {
@@ -44,13 +45,25 @@
             @include util.gap(tabletsm);
             position: relative;
             gap: 1.56rem;
+            cursor: pointer;
 
             .form-control {
                 @include util.input-styles();
+                min-width: 17.4375rem;
+                border-bottom: 1px solid #5A898F;
+                border-radius: 0;
+
             }
 
+            .feedback {
+                display: flex;
+                justify-content: flex-end;
+                padding-top: 1.25rem;
+            }
             .error-message {
                @include util.error-message();
+               position: absolute;
+               top: -3.85rem;
             }
 
             .password-message {

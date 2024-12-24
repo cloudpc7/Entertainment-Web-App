@@ -1,15 +1,27 @@
 @use '../variables/colors.scss' as colors;
 @use '../variables/utilities.scss' as util;
 @use '../variables/font.scss' as font;
-
 .movie-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: util.gutter(default);
+    @include util.margin(default);
+
+    @media (min-width: 90rem) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(min-content,max-content));
+        align-items: start;
+        justify-items: start;
+        gap: 2.25rem;
+    }
+}
+.movies {
     @include util.flex-container(column,wrap,center,center);
     padding: util.gutter(default);
     @include util.margin(default);
-    width: 100%;
-    max-width: 100%;
 
-    @media(min-width: 1440px) {
+    @media(min-width: 90rem) {
         display: grid;
         grid-column: 2;
         padding-bottom: 3rem;
@@ -29,8 +41,15 @@
         }
 
         .sub-title {
-            @media (min-width: 1440px) {
-                margin-bottom: 2.38rem;
+            padding: 1rem;
+        }
+
+        .search-results {
+            @include util.flex-container(row,wrap,flex-start,center);
+            gap: 0.5rem;
+
+            @media (min-width: 48rem) {
+                gap: 1.5rem;
             }
         }
     

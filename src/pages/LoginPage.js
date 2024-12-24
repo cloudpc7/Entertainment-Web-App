@@ -1,21 +1,12 @@
+import { useContext } from 'react';
+import { MovieContext } from '../MovieContext';
 import LoginForm from "../components/LoginForm";
 import { Container, Image } from 'react-bootstrap';
 import movieIcon from '../assets/logo.svg';
 
 import "../styles/login/login.scss";
 
-const LoginPage = ({ 
-    isLoggedIn, 
-    touched, 
-    login, 
-    signUp, 
-    errMsg, 
-    formData, 
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    handleToggleForm
-    }) => {
+const LoginPage = () => {
     
     return (
         <Container fluid className="login-container">
@@ -24,19 +15,7 @@ const LoginPage = ({
                 alt="red movie clip"
                 className="movie-icon"
             />
-            <LoginForm 
-                IsLoggedIn={isLoggedIn}
-                touched={touched}
-                login={login}
-                signUp={signUp}
-                errMsg
-                formData={formData}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                handleToggleForm={handleToggleForm}
-
-                />
+            <LoginForm />
         </Container>
         
     )

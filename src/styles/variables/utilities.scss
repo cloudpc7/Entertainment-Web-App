@@ -162,14 +162,15 @@ $margin-sizes: (
     $color: colors.colorTheme(app-white),
     $backgroundColor: colors.colorTheme(app-dark-blue),
     $border: none,
-    $padding: 0,
+    $padding: 1rem,
 ) {
     font-size: $font-size;
     color: $color;
     background-color: $backgroundColor;
     border: $border;
     caret-color: colors.colorTheme(app-red);
-    padding: 0;
+    padding-left: $padding;
+    padding-right: 0;
     cursor: pointer;
     &::placeholder {
       font-size: 0.9375rem;
