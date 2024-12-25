@@ -15,27 +15,27 @@ function App() {
     <Container className="app-container">
       <Routes>
         <Route 
-            path="/login" 
-            element={ isLoggedIn ? <Navigate to="/home" /> : <LoginPage /> } 
+            path="/Entertainment-Web-App/login" 
+            element={ isLoggedIn ? <Navigate to="/Entertainment-Web-App/home" /> : <LoginPage /> } 
           />
           <Route 
             path="/home" 
-            element={ isLoggedIn ? <HomePage /> : <Navigate to="/login" /> } 
+            element={ isLoggedIn ? <HomePage /> : <Navigate to="/Entertainment-Web-App/login" /> } 
           />
           <Route 
-            path="/signup"
+            path="/Entertainment-Web-App/signup"
             element={ <LoginPage /> } 
           />
            <Route 
-            path="/movies"
+            path="/Entertainment-Web-App/movies"
             element={ <Movies /> } 
           />
            <Route 
-            path="/tvseries"
+            path="/Entertainment-Web-App/tvseries"
             element={ <TVSeries /> } 
           />
            <Route 
-            path="/bookmarked"
+            path="/Entertainment-Web-App/bookmarked"
             element={<Bookmarked /> } 
           />
       </Routes>
