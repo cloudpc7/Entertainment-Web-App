@@ -1,6 +1,5 @@
 {
   "name": "entertainment-web-app",
-  "homepage": "https://cloudpc.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
