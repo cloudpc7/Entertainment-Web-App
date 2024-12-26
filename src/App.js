@@ -19,7 +19,7 @@ function App() {
             element={ isLoggedIn ? <Navigate to="/Entertainment-Web-App/home" /> : <LoginPage /> } 
           />
           <Route 
-            path="/home" 
+            path="/Entertainment-Web-App/home" 
             element={ isLoggedIn ? <HomePage /> : <Navigate to="/Entertainment-Web-App/login" /> } 
           />
           <Route 
