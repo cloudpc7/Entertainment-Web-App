@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { mapImage } from './mapImage';
+
 import { db } from '../firebase.config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
@@ -13,7 +13,8 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async() => {
         }
         const movies = [];
         querySnapshot.forEach((doc) => {
-            movies.push(doc.data());
+            const movieData = doc.data();
+            movies.push(movieData);
         });
         return movies;
 

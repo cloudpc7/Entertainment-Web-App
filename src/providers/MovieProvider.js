@@ -9,7 +9,6 @@ const MovieProvider = ({ children }) => {
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.movies.isLoading);
     const moviesArray = useSelector(state => state.movies.moviesArray);
-    const errMsg = useSelector(state => state.movies.errMsg);
     const [isTrending, setIsTrending] = useState([]);
     const [recommend, setRecommend] = useState([]);
     const [bookmarked, setBookmarked] = useState([]);
@@ -53,7 +52,7 @@ const MovieProvider = ({ children }) => {
 
     //movie db state
     // window sizing state 
-    const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
+    // const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
 
     //search functions
     const handleSearch = (term) => {
@@ -133,7 +132,7 @@ const MovieProvider = ({ children }) => {
         loading,
         searchTerm,
         moviesArray,
-        windowWidth,
+        // windowWidth,
         input,
         searchMsg,
         isTrending,

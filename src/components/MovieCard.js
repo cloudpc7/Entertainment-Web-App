@@ -1,4 +1,4 @@
-import { Card, CardImg, CardTitle, CardBody, CardText, CardImgOverlay } from 'reactstrap';
+import { Card, CardImg, CardTitle, CardBody, CardImgOverlay } from 'reactstrap';
 import { Image } from 'react-bootstrap';
 import { useState, useEffect  } from 'react';
 import movie from '../assets/icon-category-movie.svg';
@@ -6,7 +6,6 @@ import tv from '../assets/icon-category-tv.svg';
 import bookmarkFull from '../assets/icon-bookmark-full.svg';
 import bookmark from '../assets/icon-bookmark-empty.svg';
 import '../styles/moviecard/moviecard.scss';
-import { useContext } from 'react';
 
 const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large, isTrending, handleBookmark}) => {
 
@@ -17,16 +16,6 @@ const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
-    const getImgSrc = () => {
-        if (windowWidth <= 576) {
-            return small;
-        } else if (windowWidth <=768) {
-            return medium;
-        } else {
-            return large;
-        }
-    }
 
     return (
        isTrending ?  (
@@ -58,7 +47,7 @@ const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large
                             </li>
                             <span>{rating}</span>
                         </ul>
-                        <CardText className="movie-title">{title}</CardText>
+                        <CardTitle className="movie-title">{title}</CardTitle>
                     </CardBody>
                 </CardImgOverlay>
                 <CardImg 
@@ -100,7 +89,7 @@ const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large
                             </li>
                             <span className="rating">{rating}</span>
                         </ul>
-                            <CardText className="movie-title">{title}</CardText>
+                            <CardTitle className="movie-title">{title}</CardTitle>
                     </CardBody>
             </Card>
         </>
