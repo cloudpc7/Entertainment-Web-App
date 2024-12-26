@@ -1,71 +1,89 @@
 @use '../variables/colors.scss' as colors;
 @use '../variables/utilities.scss' as util;
 @use '../variables/font.scss' as font;
-.movie-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+
+.movies {
+    @include util.flex-container(column,nowrap,unset,unset);;
+    gap: 1rem;
     padding: util.gutter(default);
-    @include util.margin(default);
+    @include util.margin(default); 
+    @media (min-width: 48rem) {
+        gap: 1.56rem;
+    }
 
     @media (min-width: 90rem) {
         display: grid;
         grid-template-columns: repeat(2, minmax(min-content,max-content));
-        align-items: start;
-        justify-items: start;
         gap: 2.25rem;
     }
-}
-.movies {
-    @include util.flex-container(column,wrap,center,center);
-    padding: util.gutter(default);
-    @include util.margin(default);
-
-    @media(min-width: 90rem) {
-        display: grid;
-        grid-column: 2;
-        padding-bottom: 3rem;
+    .movies-title {
+        padding-left: 1rem;
+        @media (min-width: 90rem) {
+            padding: 0;
+        }
     }
-    .movie-row {
-        @include util.flex-container(column,wrap,flex-start,flex-start);
-        .search-col {
-            padding: util.gutter(default);
+
+    .movie-page-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(min-content,max-content));
+        grid-template-rows: repeat(2,minmax(min-content,max-content));
+        gap: 1rem;
+        padding-left: 1rem;
+        @media (min-width: 48rem) {
+            grid-template-columns: repeat(3,minmax(min-content,max-content));
+        }
+
+        @media (min-width: 90rem) {
+            padding: 0;
+            grid-template-columns: repeat(4, minmax(min-content,max-content));
+            gap: 2.5rem;
+        }
+
+        .movie-bookmark {
+            grid-row: 1;
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: column;
+            gap: 0.94rem;
 
-            @media (min-width: 768px) {
-                margin-top: 4.06rem;
-                margin-bottom: 2.19rem;
+            .movie-card-div {
+                grid-row: 2;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 0.94rem;
+
+                @media (min-width: 48rem) {
+                    grid-template-columns: repeat(3,1fr);
+                    gap: 1.88rem;
+                }
+
+                @media (min-width: 90rem) {
+                    grid-template-columns: repeat(4,1fr);
+                    gap: 2.5rem;
+                }
             }
         }
 
-        .sub-title {
-            padding: 1rem;
-        }
+        .tv-bookmark {
+            grid-row: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 0.94rem;
 
-        .search-results {
-            @include util.flex-container(row,wrap,flex-start,center);
-            gap: 0.5rem;
+            .movie-card-div {
+                grid-row: 2;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 0.94rem;
 
-            @media (min-width: 48rem) {
-                gap: 1.5rem;
-            }
-        }
-    
-        .movies-col {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(min-content,max-content));
-            @include util.gap(xs);
+                @media (min-width: 48rem) {
+                    grid-template-columns: repeat(3,1fr);
+                    gap: 1.88rem;
+                }
 
-            @media(min-width: 768px) {
-                grid-template-columns: repeat(3, minmax(min-content,max-content)); 
-                gap: 1.5rem;
-            }
-
-            @media(min-width: 1440px) {
-                grid-template-columns: repeat(4, minmax(min-content,max-content)); 
-                gap: 2rem;
+                @media (min-width: 90rem) {
+                    grid-template-columns: repeat(4,1fr);
+                    gap: 2.5rem;
+                }
             }
         }
     }

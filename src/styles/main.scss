@@ -7,6 +7,7 @@ body {
     background-color: colors.colorTheme(app-black) !important;
     color: colors.colorTheme(app-white);
     @include font.font-theme(default);
+    overflow-x:hidden;
     .h1, h1 {
         @media (min-width: 1200px) {
             @include font.font-theme(HeadingLarge);
@@ -30,10 +31,16 @@ body {
     }
 
     .app-container {
-        @include util.flex-container(column,wrap,center,center);
         @include util.margin(default);
         padding: util.gutter(default);
         width: 100%;
-        max-width: 100%;
+        max-width:100%;
+        @media (min-width: 48rem) {
+            padding: 1.44rem 1.56rem;
+        }
+
+        @media (min-width: 90rem) {
+            padding: 2rem;
+        }
     }
 }

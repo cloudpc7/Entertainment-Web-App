@@ -9,12 +9,25 @@ import '../styles/moviecard/moviecard.scss';
 import { useContext } from 'react';
 
 const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large, isTrending, handleBookmark}) => {
+
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [])
+    }, []);
+
+    const getImgSrc = () => {
+        if (windowWidth <= 576) {
+            return small;
+        } else if (windowWidth <=768) {
+            return medium;
+        } else {
+            return large;
+        }
+    }
+
     return (
        isTrending ?  (
         <>
@@ -41,7 +54,6 @@ const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large
                                 <Image 
                                     className="info-image" 
                                     src={movie}
-
                                 />
                             </li>
                             <span>{rating}</span>
@@ -50,11 +62,7 @@ const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large
                     </CardBody>
                 </CardImgOverlay>
                 <CardImg 
-                    src={
-                        windowWidth <= 576 ?
-                        small :
-                        large
-                    }
+                    src={windowWidth <= 376 ? small : large}
                     alt={title}
                     className="movie-image"
                 />
@@ -73,13 +81,7 @@ const MovieCard = ({category, isBookmarked, rating,title,year,small,medium,large
                     </div>
                 </CardImgOverlay>
                     <CardImg 
-                        src={
-                            windowWidth <= 576 ?
-                                small :
-                            windowWidth <= 768 ?
-                                medium:
-                                large
-                        }
+                        src={small}
                         alt={title}
                         className="movie-image"
                     />

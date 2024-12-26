@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import MovieContext  from '../MovieContext';
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import Navigation from '../components/Navigation';
 import Trending from '../components/Trending';
 import Recommended from '../components/Recommended';
@@ -9,9 +9,9 @@ import '../styles/home/home.scss';
 import MovieCard from '../components/MovieCard';
 
 const HomePage = () => {
-    const { searchResults, moviesArray, loading, searchTerm, handleBookmark } = useContext(MovieContext);
+    const { searchResults, loading, searchTerm, handleBookmark } = useContext(MovieContext);
     const resultText = searchResults.length === 1 ? 'result' : 'results';
-    console.log()
+
     return (
         <Container className="home-container">
             <Navigation />

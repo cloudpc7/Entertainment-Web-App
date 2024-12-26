@@ -3,38 +3,51 @@
 @use '../variables/font.scss' as font;
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    @include util.flex-container(column,nowrap,unset,unset);
     padding: util.gutter(default);
     @include util.margin(default);
+    gap: 1rem;
+    
+    @media(min-width: 48rem) {
+        gap: 1.56rem;
+    }
 
     @media (min-width: 90rem) {
         display: grid;
         grid-template-columns: repeat(2, minmax(min-content,max-content));
-        align-items: start;
-        justify-items: start;
         gap: 2.25rem;
     }
 
     .trend {
-        padding: 1rem;
-
+        padding-left: 1rem;
         @media (min-width: 48rem) {
-            padding: 1.56rem;
+            padding-left: 1.56rem;
+        }
+        @media (min-width: 90rem) {
+            padding: 0;
+            grid-column: 2;
+            grid-row: 2;
         }
     }
 
     .recommend {
-        padding: 1rem;
+        padding-left: 1rem;
 
         @media (min-width: 48rem) {
-            padding: 1.56rem;
+            padding-left: 1.56rem;
+        }
+
+        @media (min-width: 90rem) {
+            padding: 0;
         }
     }
 
     .found {
-        padding: 1rem;
+        padding-left: 1rem;
+
+        @media(min-width: 90rem) {
+            padding: 0;
+        }
     }
 
     .search-results {

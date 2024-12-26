@@ -32,7 +32,16 @@ const initialState = {
 const moviesSlice = createSlice({
     name: 'movies',
     initialState,
-    reducers: {},
+    reducers: {
+        updateBookmark(state, action) {
+            const movieTitle = action.payload;
+            state.moviesArray = state.moviesArray.map((movie) =>
+                movie.title === movieTitle ?
+                {...movie, isBookmarked: !movie.isBookmarked }
+                : movie,
+            );
+        },
+    },
     extraReducers: (builder => {
         builder
         .addCase(fetchMovies.pending, (state) => {
@@ -50,6 +59,7 @@ const moviesSlice = createSlice({
     })
 });
 
+export const { updateBookmark } = moviesSlice.actions;
 export const MoviesReducer =  moviesSlice.reducer;
 
 export const movies = (state) => {

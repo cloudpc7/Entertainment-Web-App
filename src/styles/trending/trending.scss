@@ -5,15 +5,24 @@
 
 
 .trending-container {
-    @include util.flex-container(row,flex-start,flex-start);
+    @include util.flex-container(row,nowrap,flex-start,flex-start);
     @include util.gap(xs);
     padding-left: 1rem;
+    padding-right: 0;
     @include util.margin(default);
+
+    @media(min-width: 48rem) {
+        padding-left: 1.56rem;
+    }
 
     @media (min-width: 90rem) {
         grid-column: 2;
         grid-row: 3;
         gap: 2.5rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         padding-left: 0;
+        width: 100%;
+        max-width: 100%;
     }
 }

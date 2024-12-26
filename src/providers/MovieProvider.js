@@ -3,7 +3,7 @@ import MovieContext from '../MovieContext';
 import { search } from '../utilities/search';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies } from '../utilities/movieApi';
-
+import { updateBookmark } from '../utilities/movieApi';
 const MovieProvider = ({ children }) => {
    
     const dispatch = useDispatch();
@@ -77,6 +77,7 @@ const MovieProvider = ({ children }) => {
     //bookmarking function
 
     const handleBookmark = (movieTitle) => {
+        dispatch(updateBookmark(movieTitle));
         setMovies((prevMovies) => prevMovies.map((movie) =>
             movie.title === movieTitle ?
             {...movie, isBookmarked: !movie.isBookmarked} : movie,

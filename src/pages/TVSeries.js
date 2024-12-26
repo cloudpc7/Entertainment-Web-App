@@ -1,10 +1,8 @@
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import MovieCard from '../components/MovieCard';
-import '../styles/movies/movies.scss';
-import '../styles/search/search.scss';
 import Searchbar from '../components/Searchbar';
 import Navigation from '../components/Navigation';
-
+import '../styles/movies/movies.scss';
 import { useContext } from 'react';
 import MovieContext  from '../MovieContext';
 
@@ -12,20 +10,17 @@ const TVSeries = () => {
     const {moviesArray, handleBookmark, loading, searchTerm, searchResults, handleSearch} = useContext(MovieContext);
     const tvSeries = moviesArray.filter((movie) => movie.category === 'TV Series');
     return (
-        <Container className="movie-container">
-            <Navigation />
-        {
+        <>
+            {
 
-            <Container className="movies">
-                <Row className="movie-row">
-                    <Col className="search-col">
+                <Container className="movies">
+                    <Navigation />  
                         <Searchbar 
                             searchResults={searchResults}
                             searchTerm={searchTerm}
                             onSearch={handleSearch}
                             loading={loading}
                         />
-                    </Col>
                         {
                                 loading ? (
                                 <Spinner animation="border" size="lg"/>
@@ -61,46 +56,44 @@ const TVSeries = () => {
                                 </div>
                             ) : (
                                 <>
-                                <h3 className="h3 sub-title">TV Series</h3>
-                                <Col className="movies-col">
-                                
-                                    {
-                                        tvSeries.map((movie) => {
-                                            const {
-                                                category, 
-                                                isBookmarked, 
-                                                rating,
-                                                thumbnail,
-                                                title,
-                                                year
+                                    <h3 className="h3 sub-title movies-title">TV Series</h3>
+                                    <Container className="movie-page-container">
+                                        {
+                                            tvSeries.map((movie) => {
+                                                const {
+                                                    category, 
+                                                    isBookmarked, 
+                                                    rating,
+                                                    thumbnail,
+                                                    title,
+                                                    year
                                                 } = movie;
-                                            
-                                            const {small, medium, large } = thumbnail.regular;
+                                                
+                                                const {small, medium, large } = thumbnail.regular;
                             
-                                            return (
-                                                <MovieCard 
-                                                    key={title}
-                                                    category={category}
-                                                    isBookmarked={isBookmarked}
-                                                    handleBookmark={handleBookmark}
-                                                    rating={rating}
-                                                    small={small}
-                                                    medium={medium}
-                                                    larg={large}
-                                                    title={title}
-                                                    year={year}
-                                                />
-                                            )
-                                        })
-                                    }
-                                </Col>
+                                                return (
+                                                    <MovieCard 
+                                                        key={title}
+                                                        category={category}
+                                                        isBookmarked={isBookmarked}
+                                                        handleBookmark={handleBookmark}
+                                                        rating={rating}
+                                                        small={small}
+                                                        medium={medium}
+                                                        larg={large}
+                                                        title={title}
+                                                        year={year}
+                                                    />
+                                                )
+                                            })
+                                        }
+                                    </Container>
                                 </>
-                                )
-                        }
-                </Row>  
-            </Container>
-        }
-        </Container>
+                            )
+                        } 
+                </Container>
+            }
+        </>
     )
 }
 
