@@ -19,7 +19,7 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
-
+Front End Mentor Website Challenge Advanced Level 4
 ### The challenge
 
 Users should be able to:
@@ -30,18 +30,12 @@ Users should be able to:
 - Add/Remove bookmarks from all movies and TV series
 - Search for relevant shows on all pages
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+<img src ="/src/assets/entertainment-screenshot.png"/>
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
+- Solution URL: [Entertainment Web Application](https://github.com/cloudpc7/Entertainment-Web-Application/)
+- Live Site URL: [Entertainment Web Application](https://entertainmentwebapp-444922.web.app/)
 
 ### Built with
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
@@ -53,22 +47,13 @@ Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to t
 [![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
 
 ### What I learned
-
+ I learned how to create a login page with react and the ability to perform error handling when a user logs in. 
 ### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+Will continue to look for and improve on small minor details and adjust code as needed. 
 
 ## Author
-
+Paul Cloud
 - Website - [Paul Cloud](https://cloudportfolio-440621.web.app/)
 - Frontend Mentor - [@cloudpc7](https://www.frontendmentor.io/profile/yourusername)
 
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
