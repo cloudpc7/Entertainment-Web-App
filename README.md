@@ -16,25 +16,13 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 Front End Mentor Website Challenge Advanced Level 4
 ### The challenge
 
-Users should be able to:
-
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Navigate between Home, Movies, TV Series, and Bookmarked Shows pages
-- Add/Remove bookmarks from all movies and TV series
-- Search for relevant shows on all pages
-
 <img src ="/src/assets/entertainment-screenshot.png"/>
 
 ### Links
-
-- Solution URL: [Entertainment Web Application](https://github.com/cloudpc7/Entertainment-Web-Application/)
 - Live Site URL: [Entertainment Web Application](https://entertainmentwebapp-444922.web.app/)
 
 ### Built with
